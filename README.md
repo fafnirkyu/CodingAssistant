@@ -31,6 +31,7 @@ This assistant helps you write, debug, and manage code across multiple projects 
 ├── projects/ # Your saved coding projects
 ├── memory.db # SQLite chat history database
 └── README.md
+
 ---
 
 ## 🛠️ Requirements
@@ -109,3 +110,4 @@ Highlight.js — Syntax highlighting for code blocks.
 
 Everything runs entirely locally.
 No data is sent to external services except optional DuckDuckGo search queries.
+
