@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+*.log
+
+# Virtual environments
+.env
+.venv
+venv/
+ENV/
+
+# Databases
+*.db
+*.sqlite3
+memory.db
+
+# Model weights (too large for GitHub)
+*.bin
+*.pt
+*.safetensors
+*.gguf
+
+# Ollama / model artifacts
+Modelfile.bak
+*.onnx
+*.h5
+*.ckpt
+
+# Node.js / frontend (if you add npm builds)
+node_modules/
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor configs
+.vscode/
+.idea/
+
+# Project-specific
+/projects/         # generated project files from assistant
+/uploads/          # uploaded files if you store them
