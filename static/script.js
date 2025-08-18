@@ -1,170 +1,165 @@
-(function () {
-  const sendBtn = document.getElementById("send");
-  const clearBtn = document.getElementById("clear");
-  const promptInput = document.getElementById("prompt");
-  const projectSelect = document.getElementById("project");
-  const addProjectBtn = document.getElementById("addProject");
-  const chatDiv = document.getElementById("chat");
+const chatDiv = document.getElementById("chat");
+const promptInput = document.getElementById("prompt");
+const sendBtn = document.getElementById("send");
+const stopBtn = document.getElementById("stop");
+const clearBtn = document.getElementById("clear");
+const projectSelect = document.getElementById("project");
+const addProjectBtn = document.getElementById("addProject");
+const deleteProjectBtn = document.getElementById("deleteProject");
 
-  // Load projects from backend
-  function loadProjects() {
-    fetch("/projects")
-      .then(res => res.json())
-      .then(projects => {
-        projectSelect.innerHTML = "";
-        projects.forEach(p => {
-          const opt = document.createElement("option");
-          opt.value = p;
-          opt.textContent = p;
-          projectSelect.appendChild(opt);
-        });
-      })
-      .catch(err => console.error("Failed to load projects:", err));
-  }
+let currentAbortController = null;
 
-  loadProjects();
+// ---------- Chat message helpers ----------
+function makeUserNode(text) {
+  const node = document.createElement("div");
+  node.className = "message user";
+  node.innerHTML = `<strong>You:</strong><br>${marked.parse(text)}`;
+  return node;
+}
 
-  // Add new project (persist to backend)
-  addProjectBtn.addEventListener("click", () => {
-    const name = prompt("Enter new project name:");
-    if (name && name.trim()) {
-      const trimmed = name.trim();
-      fetch("/add_project", {
+function makeAssistantNode() {
+  const node = document.createElement("div");
+  node.className = "message assistant";
+  node.innerHTML = `<strong>Assistant:</strong><br><em>...</em>`;
+  return node;
+}
+
+function appendAndScroll(node) {
+  chatDiv.appendChild(node);
+  chatDiv.scrollTop = chatDiv.scrollHeight;
+}
+
+// ---------- Project management ----------
+async function refreshProjects() {
+  const res = await fetch("/projects");
+  const data = await res.json();
+  projectSelect.innerHTML = "";
+  data.forEach(p => {
+    const opt = document.createElement("option");
+    opt.value = p;
+    opt.textContent = p;
+    projectSelect.appendChild(opt);
+  });
+}
+
+addProjectBtn.addEventListener("click", async () => {
+  const name = prompt("New project name:");
+  if (!name) return;
+  await fetch("/add_project", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ project: name })
+  });
+  await refreshProjects();
+  projectSelect.value = name;
+});
+
+deleteProjectBtn.addEventListener("click", async () => {
+  const name = projectSelect.value;
+  if (!name) return;
+  if (!confirm(`Delete project "${name}"? This cannot be undone.`)) return;
+  await fetch("/delete_project", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ project: name })
+  });
+  await refreshProjects();
+});
+
+// ---------- Chat ----------
+sendBtn.addEventListener("click", async () => {
+  const prompt = promptInput.value.trim();
+  const project = projectSelect.value || "default";
+  if (!prompt) return;
+
+  promptInput.value = "";
+  appendAndScroll(makeUserNode(prompt));
+  const assistantNode = makeAssistantNode();
+  appendAndScroll(assistantNode);
+
+  let fullText = "";
+  currentAbortController = new AbortController();
+
+  let finalPrompt = prompt;
+
+  // --- Web search integration ---
+  const useWeb = document.getElementById("useWeb").checked;
+  if (useWeb) {
+    try {
+      const res = await fetch("/search_web", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ project: trimmed })
-      })
-        .then(res => res.json())
-        .then(data => {
-          if (data.error) {
-            alert("Error: " + data.error);
-          } else {
-            loadProjects();
-            projectSelect.value = trimmed;
-          }
-        })
-        .catch(err => {
-          alert("Failed to add project: " + err);
-        });
+        body: JSON.stringify({ query: prompt })
+      });
+      const data = await res.json();
+      if (data.results && data.results.length > 0) {
+        const webText = data.results.slice(0, 5).join("\n- ");
+        finalPrompt = `${prompt}\n\nWeb search results:\n- ${webText}`;
+      }
+    } catch (err) {
+      console.error("Web search failed:", err);
     }
-  });
-
-  // Append and scroll helper
-  function appendAndScroll(node) {
-    chatDiv.appendChild(node);
-    chatDiv.scrollTop = chatDiv.scrollHeight;
   }
+  // --- End Web search ---
 
-  function makeUserNode(text) {
-    const d = document.createElement("div");
-    d.className = "user";
-    d.textContent = text;
-    return d;
-  }
-
-  function makeAssistantNode() {
-    const d = document.createElement("div");
-    d.className = "assistant";
-    d.style.whiteSpace = "pre-wrap";
-    return d;
-  }
-
-  sendBtn.addEventListener("click", () => {
-    const prompt = promptInput.value.trim();
-    const project = projectSelect.value || "default";
-    if (!prompt) return;
-
-    promptInput.value = "";
-
-    appendAndScroll(makeUserNode(prompt));
-    const assistantNode = makeAssistantNode();
-    appendAndScroll(assistantNode);
-
-    let fullText = "";
-
-    fetch("/stream", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: prompt, project })
-    })
-      .then(response => {
-        if (!response.ok) {
-          assistantNode.textContent = `Error: ${response.status}`;
+  fetch("/stream", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: finalPrompt, project }),
+    signal: currentAbortController.signal
+  })
+  .then(response => {
+    if (!response.ok) {
+      assistantNode.textContent = `Error: ${response.status}`;
+      return;
+    }
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder("utf-8");
+    function readLoop() {
+      reader.read().then(({ done, value }) => {
+        if (done) {
+          hljs.highlightAll();
           return;
         }
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder("utf-8");
-
-        function readLoop() {
-          reader.read().then(({ done, value }) => {
-            if (done) {
+        const chunkText = decoder.decode(value, { stream: true });
+        const parts = chunkText.split("\n");
+        for (const line of parts) {
+          if (line.startsWith("data: ")) {
+            const raw = line.slice(6);
+            if (raw === "[DONE]") continue;
+            if (raw.startsWith("ERROR:")) {
+              assistantNode.textContent = raw;
+              continue;
+            }
+            const formatted = raw.replace(/\\n/g, "\n");
+            fullText += formatted;
+            try {
+              assistantNode.innerHTML = `<strong>Assistant:</strong><br>` + marked.parse(fullText);
               hljs.highlightAll();
-              return;
+            } catch {
+              assistantNode.textContent = fullText;
             }
-            const chunkText = decoder.decode(value, { stream: true });
-            const parts = chunkText.split("\n");
-            for (const line of parts) {
-              if (line.startsWith("data: ")) {
-                const raw = line.slice(6);
-                if (raw === "[DONE]") continue;
-                if (raw.startsWith("ERROR:")) {
-                  assistantNode.textContent = raw;
-                  continue;
-                }
-                const formatted = raw.replace(/\\n/g, "\n");
-                fullText += formatted;
-                try {
-                  assistantNode.innerHTML = marked.parse(fullText);
-                  hljs.highlightAll();
-                } catch {
-                  assistantNode.textContent = fullText;
-                }
-                chatDiv.scrollTop = chatDiv.scrollHeight;
-              }
-            }
-            readLoop();
-          }).catch(err => {
-            assistantNode.textContent = "Stream error: " + err;
-          });
+            chatDiv.scrollTop = chatDiv.scrollHeight;
+          }
         }
         readLoop();
-      })
-      .catch(err => {
-        assistantNode.textContent = "Fetch error: " + err;
       });
-  });
-
-  clearBtn.addEventListener("click", () => {
-    chatDiv.innerHTML = "";
-  });
-
-  promptInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
-      sendBtn.click();
     }
+    readLoop();
   });
-})();
+});
 
-async function uploadFile(project) {
-    const fileInput = document.getElementById("fileInput");
-    if (!fileInput.files.length) {
-        alert("Select a file first");
-        return;
-    }
+// ---------- Controls ----------
+stopBtn.addEventListener("click", () => {
+  if (currentAbortController) {
+    currentAbortController.abort();
+    currentAbortController = null;
+  }
+});
 
-    const formData = new FormData();
-    formData.append("file", fileInput.files[0]);
+clearBtn.addEventListener("click", () => {
+  chatDiv.innerHTML = "";
+});
 
-    const res = await fetch(`/upload_file/${encodeURIComponent(project)}`, {
-        method: "POST",
-        body: formData
-    });
-
-    const data = await res.json();
-    if (data.status === "ok") {
-        alert(`Uploaded: ${data.filename}`);
-        loadProjects(); // refresh project list
-    } else {
-        alert("Error: " + data.error);
-    }
-}
+// ---------- Init ----------
+refreshProjects();

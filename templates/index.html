@@ -12,21 +12,23 @@
   <div class="container">
     <h2>Local Coding Assistant by Antonio Borges</h2>
 
-    <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px;">
+    <div class="project-controls">
       <label>Project:
         <select id="project"></select>
       </label>
       <button id="addProject">+ Add Project</button>
+      <button id="deleteProject">Delete Project</button>
     </div>
 
     <div id="chat" class="chat" aria-live="polite"></div>
 
-    <textarea id="prompt" placeholder="Ask to write/debug code..."></textarea>
+    <textarea id="prompt" placeholder="Ask to write/debug code... (Ctrl+Enter to send)"></textarea>
     <div class="controls">
       <button id="send">Send</button>
+      <button id="stop">Stop</button>
       <button id="clear">Clear UI</button>
       <input type="file" id="fileInput">
-      <button onclick="uploadFile(selectedProject)">Upload File</button>
+      <button onclick="uploadFile(document.getElementById('project').value)">Upload File</button>
       <label><input type="checkbox" id="useWeb"> Use Web Search</label>
     </div>
   </div>
@@ -35,7 +37,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>
-    marked.setOptions({ gfm: true, breaks: false });
+    marked.setOptions({ gfm: true, breaks: true });
     hljs.configure({ ignoreUnescapedHTML: true, languages: [] });
   </script>
 </body>

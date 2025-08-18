@@ -1,13 +1,13 @@
-/* Dark mode base styles */
+/* Base */
 body {
-  background-color: #121212; /* Deep dark background */
-  color: #e0e0e0; /* Light gray text */
+  background-color: #121212;
+  color: #e0e0e0;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-/* Container styling */
+/* Container */
 .container {
   max-width: 800px;
   margin: auto;
@@ -16,14 +16,14 @@ body {
 
 /* Headings */
 h2 {
-  color: #ffffff; /* White text */
+  color: #ffffff;
 }
 
-/* Input and textarea fields */
+/* Inputs */
 input, textarea {
-  background-color: #1e1e1e; /* Dark input background */
-  color: #ffffff; /* White text */
-  border: 1px solid #444; /* Slightly lighter border */
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #444;
   padding: 8px;
   border-radius: 4px;
 }
@@ -39,9 +39,36 @@ textarea {
   background-color: #1a1a1a;
   border: 1px solid #333;
   padding: 10px;
-  height: 300px;
+  height: 400px;
   overflow-y: auto;
   margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+/* Messages */
+.user {
+  background-color: #2a3b5c;
+  color: #e0f0ff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 6px 0;
+  text-align: right;
+}
+
+.assistant {
+  background-color: #2d2d2d;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 6px 0;
+  text-align: left;
+}
+
+.system {
+  color: #bbb;
+  font-style: italic;
+  margin: 6px 0;
+  text-align: center;
 }
 
 /* Buttons */

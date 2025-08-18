@@ -1,6 +1,6 @@
-# Qwen v3 30B — Local Personal Coding Assistant
+# Qwen Coder — Local Personal Coding Assistant
 
-A fully local, project-aware coding companion powered by [Qwen v3 30B](https://huggingface.co/Qwen) running via [Ollama](https://ollama.com/).  
+A fully local, project-aware coding companion powered by [Qwen3-Coder-30B-A3B-Instruct-480B-Distill-V2-Q5_K_M](https://huggingface.co/Qwen) running via [Ollama](https://ollama.com/).  
 This assistant helps you write, debug, and manage code across multiple projects with file context awareness, streaming responses, and automatic file saving.
 
 ---
@@ -38,9 +38,10 @@ This assistant helps you write, debug, and manage code across multiple projects 
 
 - Python 3.9+
 - [Ollama](https://ollama.com/) installed and running locally
-- Qwen v3 30B model pulled via Ollama:
-  
-  ollama pull qwen3-coder:30b
+- Download the "Qwen3-Coder-30B-A3B-Instruct-480B-Distill-V2-Q5_K_M" model from Huggingface(https://huggingface.co/BasedBase/Qwen3-Coder-30B-A3B-Instruct-480B-Distill-V2)
+- Put the downloaded file in the same folder as the Modelfile (/model)
+- Open the CMD and run "ollama create Qwen3-Coder-30B-A3B-Instruct-480B-Distill-V2-Q5_K_M --file Modelfile"
+
   
 Node & npm (optional, if you plan to extend the frontend)
 
@@ -110,4 +111,3 @@ Highlight.js — Syntax highlighting for code blocks.
 
 Everything runs entirely locally.
 No data is sent to external services except optional DuckDuckGo search queries.
-
