@@ -19,8 +19,8 @@ PROJECTS_DIR = os.getenv("PROJECTS_DIR", "./projects")
 # LLM sampling/ctx controls
 TEMPERATURE = float(os.getenv("TEMPERATURE", "0.2"))
 TOP_P = float(os.getenv("TOP_P", "0.9"))
-NUM_CTX = int(os.getenv("NUM_CTX", "32768"))        # adjust to model capacity
-SEED = int(os.getenv("SEED", "7"))                  # make outputs deterministic-ish
+NUM_CTX = int(os.getenv("NUM_CTX", "32768"))        
+SEED = int(os.getenv("SEED", "7"))                  
 
 # Prompt/Context budgets
 MAX_FILES_IN_CONTEXT = int(os.getenv("MAX_FILES_IN_CONTEXT", "80"))
@@ -560,7 +560,7 @@ def lint(project):
     base = project_base_dir(project)
     # Try ruff, fallback to pyflakes
     try:
-        import shutil as _shutil  # local import
+        import shutil as _shutil  
         has_ruff = _shutil.which("ruff") is not None
     except Exception:
         has_ruff = False
@@ -573,3 +573,4 @@ def lint(project):
 if __name__ == "__main__":
     os.makedirs(PROJECTS_DIR, exist_ok=True)
     app.run(host="0.0.0.0", port=5000, debug=True)
+
