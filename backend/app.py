@@ -10,8 +10,9 @@ from flask import Flask, request, jsonify, render_template, Response, abort
 import ollama
 import requests
 from werkzeug.utils import secure_filename
-
-# ---------------- Config ----------------
+# ---------------------------
+# Config
+# ---------------------------
 MODEL = os.getenv("MODEL", "Qwen3-Coder-30B-A3B-Instruct-480B-Distill-V2-Q5_K_M")
 DB_PATH = os.getenv("DB_PATH", "memory.db")
 PROJECTS_DIR = os.getenv("PROJECTS_DIR", "./projects")
@@ -36,8 +37,9 @@ ALLOWED_EXTENSIONS = {
 # Optional local runner/linters (disabled by default)
 RUNNER_ENABLED = os.getenv("RUNNER_ENABLED", "0") == "1"
 LINTER_ENABLED = os.getenv("LINTER_ENABLED", "0") == "1"
-
-# ---------------- Response contract/prompt ----------------
+# ---------------------------
+# Response contract/prompt
+# ---------------------------
 SYSTEM_PROMPT = """
 You are a senior AI software engineer with expertise in:
 - Machine Learning & Data Science (Python, sklearn, XGBoost, PyTorch, TensorFlow, pandas, numpy, matplotlib, etc.)
@@ -78,11 +80,14 @@ Modes:
 
 If you are unsure about domain facts, say 'I don't know' rather than inventing details.
 """
-
-# -------------- Flask app ---------------
+# ---------------------------
+# Flask app
+# ---------------------------
 app = Flask(__name__, static_folder="../static", template_folder="../templates")
 
-# -------------- SQLite memory -----------
+# ---------------------------
+# SQLite memory
+# ---------------------------
 conn = sqlite3.connect(DB_PATH, check_same_thread=False)
 cur = conn.cursor()
 cur.execute("""
@@ -110,8 +115,10 @@ def load_recent(project: str, limit: int = 12):
     )
     rows = cur.fetchall()[::-1]
     return [{"role": r[0], "content": r[1]} for r in rows]
+# ---------------------------
+# Helpers 
+# ---------------------------
 
-# -------------- Helpers --------------
 def project_base_dir(project: str) -> str:
     base = os.path.abspath(PROJECTS_DIR)
     path = os.path.abspath(os.path.join(base, project))
@@ -331,8 +338,9 @@ IMPORTANT:
     if len(prompt) > MAX_PROMPT_CHARS:
         prompt = prompt[-MAX_PROMPT_CHARS:]
     return prompt, mode
-
-# -------------- Routes --------------
+# ---------------------------
+# Routes
+# ---------------------------
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -527,8 +535,9 @@ def cancel():
         return jsonify({"status": "cancelled"})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-# ---------- Optional: local lint & run (guarded) ----------
+# ---------------------------
+# Optional: local lint & run (guarded)
+# ---------------------------
 def _run_cmd(cmd: List[str], cwd: Optional[str] = None, timeout: int = 20) -> Tuple[int, str, str]:
     try:
         p = subprocess.run(
@@ -573,4 +582,5 @@ def lint(project):
 if __name__ == "__main__":
     os.makedirs(PROJECTS_DIR, exist_ok=True)
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 
