@@ -1,0 +1,30 @@
+# Core
+python-dotenv==1.0.1
+requests==2.32.3
+pandas==2.2.3
+SQLAlchemy==2.0.36
+
+# FastAPI backend
+fastapi==0.115.4
+uvicorn==0.32.0
+
+# Streamlit dashboard
+streamlit==1.39.0
+plotly==5.24.1
+
+# AI / NLP
+ollama==0.3.3
+numpy==1.26.4
+
+# Utils & logging
+tqdm==4.66.5
+pydantic==2.9.2
+python-multipart==0.0.9
+
+# For tests, logging & debugging
+pytest==8.3.3
+rich==13.9.2
+
+# Optional: for embedding or RAG expansion
+scikit-learn==1.5.2
+sentence-transformers==3.1.1

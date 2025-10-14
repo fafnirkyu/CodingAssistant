@@ -1,0 +1,953 @@
+2025-10-11 14:49:59 [INFO    ] ultra_robust_debug:106 - ✅ File logging enabled
+2025-10-11 14:49:59 [INFO    ] ultra_robust_debug:106 - ✅ Debug logger initialized successfully
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - 🧪 STARTING ULTRA ROBUST DEBUG LOGGER TEST
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - ➡️ ENTER test_function | extra={"args": {"x": "5", "y": "3", "extra_param": "hello"}}
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - Inside test_function | extra={"x": 5, "y": 3, "kwargs": {"extra_param": "hello"}}
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - ✅ EXIT test_function | extra={"duration_seconds": "0.106", "result": "8"}
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - ➡️ ENTER test_function | extra={"args": {"x": "100", "y": "200"}}
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - Inside test_function | extra={"x": 100, "y": 200, "kwargs": {}}
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - ✅ EXIT test_function | extra={"duration_seconds": "0.109", "result": "300"}
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - ➡️ ENTER test_function | extra={"args": {"x": "hello", "y": "20"}}
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - Inside test_function | extra={"x": "hello", "y": 20, "kwargs": {}}
+2025-10-11 14:49:59 [ERROR   ] ultra_robust_debug:161 - 💥 EXCEPTION in test_function | exception=ValueError('Strings not allowed in this test') | traceback=Traceback (most recent call last):
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 202, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 329, in test_function
+    raise ValueError("Strings not allowed in this test")
+ValueError: Strings not allowed in this test
+
+2025-10-11 14:49:59 [ERROR   ] ultra_robust_debug:161 - Expected test error occurred | exception=ValueError('Strings not allowed in this test') | traceback=Traceback (most recent call last):
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 344, in <module>
+    test_function("hello", y=20)
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 202, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 329, in test_function
+    raise ValueError("Strings not allowed in this test")
+ValueError: Strings not allowed in this test
+
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - 🌐 HTTP REQUEST | extra={"http_method": "POST", "http_url": "https://api.example.com/data", "http_headers": "{\"Authorization\": \"Bearer token\"}", "http_body": "{\"key\": \"value\"}"}
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - ✅ HTTP RESPONSE 200 | extra={"http_status": 200, "http_headers": "{\"Content-Type\": \"application/json\"}", "http_body": "{\"result\": \"success\"}", "http_duration_seconds": "0.450"}
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - 🤖 AI REQUEST | extra={"ai_model": "llama3.2:3b", "ai_prompt_preview": "Classify this text...", "ai_prompt_length": 21, "ai_max_tokens": 200}
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - ✅ AI RESPONSE | extra={"ai_response": "{\"category\": \"TEST\", \"confidence\": 0.95}", "ai_duration_seconds": "2.340", "ai_success": true}
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - 💾 DATABASE OPERATION | extra={"db_operation": "INSERT", "db_table": "tickets", "db_data": "{\"id\": 123, \"message\": \"test\"}", "db_duration_seconds": "0.012"}
+2025-10-11 14:49:59 [DEBUG   ] ultra_robust_debug:145 - 🧪 ULTRA ROBUST DEBUG LOGGER TEST COMPLETED
+2025-10-11 14:53:09 [INFO    ] ultra_robust_debug:106 - ✅ File logging enabled
+2025-10-11 14:53:09 [INFO    ] ultra_robust_debug:106 - ✅ Debug logger initialized successfully
+2025-10-11 14:53:09 [DEBUG   ] ultra_robust_debug:145 - FastAPI starting up...
+2025-10-11 15:00:18 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-11 15:00:18 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-11 15:00:18 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-11 15:02:34 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-11 15:02:34 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-11 15:02:34 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-11 16:00:04 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-11 16:00:04 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 🧪 STARTING ULTRA ROBUST DEBUG LOGGER TEST
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ➡️ ENTER test_function | extra={"args": {"x": "5", "y": "3", "extra_param": "hello"}}
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - Inside test_function | extra={"x": 5, "y": 3, "kwargs": {"extra_param": "hello"}}
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ✅ EXIT test_function | extra={"duration_seconds": "0.115", "result": "8"}
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ➡️ ENTER test_function | extra={"args": {"x": "100", "y": "200"}}
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - Inside test_function | extra={"x": 100, "y": 200, "kwargs": {}}
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ✅ EXIT test_function | extra={"duration_seconds": "0.107", "result": "300"}
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ➡️ ENTER test_function | extra={"args": {"x": "hello", "y": "20"}}
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - Inside test_function | extra={"x": "hello", "y": 20, "kwargs": {}}
+2025-10-11 16:00:04 [ERROR   ] [MainThread] ultra_robust_debug:174 - 💥 EXCEPTION in test_function | exception=ValueError('Strings not allowed in this test') | traceback=Traceback (most recent call last):
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 215, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 326, in test_function
+    raise ValueError("Strings not allowed in this test")
+ValueError: Strings not allowed in this test
+
+2025-10-11 16:00:04 [ERROR   ] [MainThread] ultra_robust_debug:174 - Expected test error occurred | exception=ValueError('Strings not allowed in this test') | traceback=Traceback (most recent call last):
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 334, in <module>
+    test_function("hello", y=20)
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 215, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 326, in test_function
+    raise ValueError("Strings not allowed in this test")
+ValueError: Strings not allowed in this test
+
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 🌐 HTTP REQUEST | extra={"http_method": "POST", "http_url": "https://api.example.com/data", "http_headers": "{\"Authorization\": \"Bearer token\"}", "http_body": "{\"key\": \"value\"}"}
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ✅ HTTP RESPONSE 200 | extra={"http_status": 200, "http_headers": "{\"Content-Type\": \"application/json\"}", "http_body": "{\"result\": \"success\"}", "http_duration_seconds": "0.450"}
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 🤖 AI REQUEST | extra={"ai_model": "llama3.2:3b", "ai_prompt_preview": "Classify this text...", "ai_prompt_length": 21, "ai_max_tokens": 200}
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ✅ AI RESPONSE | extra={"ai_response": "{\"category\": \"TEST\", \"confidence\": 0.95}", "ai_duration_seconds": "2.340", "ai_success": true}
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 💾 DATABASE OPERATION | extra={"db_operation": "INSERT", "db_table": "tickets", "db_data": "{\"id\": 123, \"message\": \"test\"}", "db_duration_seconds": "0.012"}
+2025-10-11 16:00:04 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 🧪 ULTRA ROBUST DEBUG LOGGER TEST COMPLETED
+2025-10-11 16:07:41 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-11 16:07:41 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-11 16:07:41 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-11 16:07:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000242E69C1C90>", "ticket_create": "message=\"I'm trying to cancel this shit fuck you\""}}
+2025-10-11 16:07:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 296 created successfully
+2025-10-11 16:07:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.020", "result": "<backend.models.Ticket object at 0x00000242E69FE1A0>"}
+2025-10-11 16:07:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "296"}}
+2025-10-11 16:07:52 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.839"}
+2025-10-11 16:08:16 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000242E69C0D30>", "ticket_create": "message='You charged me twice for my last purchase on March 15th.'"}}
+2025-10-11 16:08:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 297 created successfully
+2025-10-11 16:08:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x00000242DA97D780>"}
+2025-10-11 16:08:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "297"}}
+2025-10-11 16:08:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "0.457"}
+2025-10-11 16:08:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000242E69C0A30>", "ticket_create": "message='The mobile app keeps crashing when I open it on iOS.'"}}
+2025-10-11 16:08:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 298 created successfully
+2025-10-11 16:08:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x00000242E69C0D30>"}
+2025-10-11 16:08:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "298"}}
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000242DA97D180>", "ticket_create": "message='I received a damaged product in my order from yesterday.'"}}
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 299 created successfully
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x00000242DA97E260>"}
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "299"}}
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000242DA9A5480>", "ticket_create": "message='I want to cancel my premium subscription immediately.'"}}
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 300 created successfully
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x00000242E69FFCA0>"}
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "300"}}
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002428BB22FB0>", "ticket_create": "message=\"I can't log into my account after resetting my password.\""}}
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 301 created successfully
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.003", "result": "<backend.models.Ticket object at 0x000002428BB23520>"}
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "301"}}
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002428D830BB0>", "ticket_create": "message=\"My order #12345 hasn't arrived after 2 weeks.\""}}
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 302 created successfully
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002428D831000>"}
+2025-10-11 16:08:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "302"}}
+2025-10-11 16:08:20 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "2.176"}
+2025-10-11 16:08:23 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "4.090"}
+2025-10-11 16:08:23 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000242DA97E3E0>", "ticket_create": "message='My payment was declined but my card has sufficient funds.'"}}
+2025-10-11 16:08:23 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 303 created successfully
+2025-10-11 16:08:23 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x00000242DA97CEE0>"}
+2025-10-11 16:08:23 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "303"}}
+2025-10-11 16:08:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002428D833C10>", "ticket_create": "message='The website loads very slowly on my Chrome browser.'"}}
+2025-10-11 16:08:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 304 created successfully
+2025-10-11 16:08:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x000002428D833EE0>"}
+2025-10-11 16:08:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "304"}}
+2025-10-11 16:08:26 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "6.721"}
+2025-10-11 16:08:29 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.622"}
+2025-10-11 16:08:29 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000242E69FEF80>", "ticket_create": "message=\"I updated my email but verification isn't working.\""}}
+2025-10-11 16:08:29 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 305 created successfully
+2025-10-11 16:08:29 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x00000242E69FFD30>"}
+2025-10-11 16:08:29 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "305"}}
+2025-10-11 16:08:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.536"}
+2025-10-11 16:08:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002428D8301C0>", "ticket_create": "message=\"I got 'invalid promo code' error with code SAVE20.\""}}
+2025-10-11 16:08:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 306 created successfully
+2025-10-11 16:08:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002428D8304C0>"}
+2025-10-11 16:08:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "306"}}
+2025-10-11 16:08:35 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.991"}
+2025-10-11 16:08:35 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000242DA97DC60>", "ticket_create": "message='How can I change my shipping address for order #67890?'"}}
+2025-10-11 16:08:35 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 307 created successfully
+2025-10-11 16:08:35 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x00000242DA97D240>"}
+2025-10-11 16:08:35 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "307"}}
+2025-10-11 16:08:38 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "13.093"}
+2025-10-11 16:08:38 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002428D833EB0>", "ticket_create": "message=\"The live chat feature isn't loading on your website.\""}}
+2025-10-11 16:08:38 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 308 created successfully
+2025-10-11 16:08:38 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002428D8329E0>"}
+2025-10-11 16:08:38 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "308"}}
+2025-10-11 16:08:39 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002428D8315A0>", "ticket_create": "message='When does my annual subscription automatically renew?'"}}
+2025-10-11 16:08:39 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 309 created successfully
+2025-10-11 16:08:39 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002428D831FF0>"}
+2025-10-11 16:08:39 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "309"}}
+2025-10-11 16:08:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.489"}
+2025-10-11 16:08:44 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.308"}
+2025-10-11 16:08:45 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000242DA9A60B0>", "ticket_create": "message='Can I get an invoice for my purchase last week?'"}}
+2025-10-11 16:08:45 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 310 created successfully
+2025-10-11 16:08:45 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x00000242DA9A5C90>"}
+2025-10-11 16:08:45 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "310"}}
+2025-10-11 16:08:47 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.944"}
+2025-10-11 16:08:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000242DA97E560>", "ticket_create": "message='Tracking shows delivered but I never received package.'"}}
+2025-10-11 16:08:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 311 created successfully
+2025-10-11 16:08:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x00000242DA97CA60>"}
+2025-10-11 16:08:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "311"}}
+2025-10-11 16:08:50 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.351"}
+2025-10-11 16:08:51 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002428D833190>", "ticket_create": "message=\"I forgot my username and recovery email isn't working.\""}}
+2025-10-11 16:08:51 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 312 created successfully
+2025-10-11 16:08:51 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x000002428D833850>"}
+2025-10-11 16:08:51 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "312"}}
+2025-10-11 16:08:53 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "14.302"}
+2025-10-11 16:08:54 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002428D8329E0>", "ticket_create": "message=\"The refund for my cancelled order hasn't processed.\""}}
+2025-10-11 16:08:54 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 313 created successfully
+2025-10-11 16:08:54 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002428D831030>"}
+2025-10-11 16:08:54 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "313"}}
+2025-10-11 16:08:56 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.566"}
+2025-10-11 16:08:59 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000242E69FFA00>", "ticket_create": "message=\"I can't add my credit card - says invalid card number.\""}}
+2025-10-11 16:08:59 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 314 created successfully
+2025-10-11 16:08:59 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x00000242E69FFBB0>"}
+2025-10-11 16:08:59 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "314"}}
+2025-10-11 16:08:59 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.022"}
+2025-10-11 16:09:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000242DA97FCD0>", "ticket_create": "message='My account was locked after multiple failed login attempts.'"}}
+2025-10-11 16:09:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 315 created successfully
+2025-10-11 16:09:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x00000242DA97DBA0>"}
+2025-10-11 16:09:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "315"}}
+2025-10-11 16:09:02 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.717"}
+2025-10-11 16:09:04 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002428D8338B0>", "ticket_create": "message='Order confirmation emails are not coming through.'"}}
+2025-10-11 16:09:04 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 316 created successfully
+2025-10-11 16:09:04 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x000002428D8331F0>"}
+2025-10-11 16:09:04 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "316"}}
+2025-10-11 16:09:05 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.065"}
+2025-10-11 16:09:08 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.249"}
+2025-10-11 16:09:11 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.868"}
+2025-10-11 16:09:14 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.230"}
+2025-10-11 16:09:56 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-11 16:09:56 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-11 16:09:56 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 🧪 STARTING ULTRA ROBUST DEBUG LOGGER TEST
+2025-10-11 16:09:56 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ➡️ ENTER test_function | extra={"args": {"x": "5", "y": "3", "extra_param": "hello"}}
+2025-10-11 16:09:56 [DEBUG   ] [MainThread] ultra_robust_debug:153 - Inside test_function | extra={"x": 5, "y": 3, "kwargs": {"extra_param": "hello"}}
+2025-10-11 16:09:56 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ✅ EXIT test_function | extra={"duration_seconds": "0.111", "result": "8"}
+2025-10-11 16:09:56 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ➡️ ENTER test_function | extra={"args": {"x": "100", "y": "200"}}
+2025-10-11 16:09:56 [DEBUG   ] [MainThread] ultra_robust_debug:153 - Inside test_function | extra={"x": 100, "y": 200, "kwargs": {}}
+2025-10-11 16:09:57 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ✅ EXIT test_function | extra={"duration_seconds": "0.107", "result": "300"}
+2025-10-11 16:09:57 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ➡️ ENTER test_function | extra={"args": {"x": "hello", "y": "20"}}
+2025-10-11 16:09:57 [DEBUG   ] [MainThread] ultra_robust_debug:153 - Inside test_function | extra={"x": "hello", "y": 20, "kwargs": {}}
+2025-10-11 16:09:57 [ERROR   ] [MainThread] ultra_robust_debug:174 - 💥 EXCEPTION in test_function | exception=ValueError('Strings not allowed in this test') | traceback=Traceback (most recent call last):
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 215, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 326, in test_function
+    raise ValueError("Strings not allowed in this test")
+ValueError: Strings not allowed in this test
+
+2025-10-11 16:09:57 [ERROR   ] [MainThread] ultra_robust_debug:174 - Expected test error occurred | exception=ValueError('Strings not allowed in this test') | traceback=Traceback (most recent call last):
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 334, in <module>
+    test_function("hello", y=20)
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 215, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 326, in test_function
+    raise ValueError("Strings not allowed in this test")
+ValueError: Strings not allowed in this test
+
+2025-10-11 16:09:57 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 🌐 HTTP REQUEST | extra={"http_method": "POST", "http_url": "https://api.example.com/data", "http_headers": "{\"Authorization\": \"Bearer token\"}", "http_body": "{\"key\": \"value\"}"}
+2025-10-11 16:09:57 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ✅ HTTP RESPONSE 200 | extra={"http_status": 200, "http_headers": "{\"Content-Type\": \"application/json\"}", "http_body": "{\"result\": \"success\"}", "http_duration_seconds": "0.450"}
+2025-10-11 16:09:57 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 🤖 AI REQUEST | extra={"ai_model": "llama3.2:3b", "ai_prompt_preview": "Classify this text...", "ai_prompt_length": 21, "ai_max_tokens": 200}
+2025-10-11 16:09:57 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ✅ AI RESPONSE | extra={"ai_response": "{\"category\": \"TEST\", \"confidence\": 0.95}", "ai_duration_seconds": "2.340", "ai_success": true}
+2025-10-11 16:09:57 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 💾 DATABASE OPERATION | extra={"db_operation": "INSERT", "db_table": "tickets", "db_data": "{\"id\": 123, \"message\": \"test\"}", "db_duration_seconds": "0.012"}
+2025-10-11 16:09:57 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 🧪 ULTRA ROBUST DEBUG LOGGER TEST COMPLETED
+2025-10-11 17:42:21 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-11 17:42:21 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-11 17:42:21 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-11 17:44:49 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-11 17:44:49 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-11 17:44:49 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-11 17:47:17 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-11 17:47:17 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-11 17:47:17 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-11 17:58:08 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-11 17:58:08 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-11 17:58:35 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-11 17:58:35 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-11 17:59:42 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-11 17:59:42 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-11 18:02:10 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-11 18:07:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590A43CD0>", "ticket_create": "message=\"I can't log into my account after resetting my password.\""}}
+2025-10-11 18:07:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 317 created successfully
+2025-10-11 18:07:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.014", "result": "<backend.models.Ticket object at 0x0000025590A8F580>"}
+2025-10-11 18:07:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "317"}}
+2025-10-11 18:07:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590F7D1E0>", "ticket_create": "message=\"My order #12345 hasn't arrived after 2 weeks.\""}}
+2025-10-11 18:07:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 318 created successfully
+2025-10-11 18:07:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590F7C070>"}
+2025-10-11 18:07:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "318"}}
+2025-10-11 18:07:07 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590F7C250>", "ticket_create": "message='You charged me twice for my last purchase on March 15th.'"}}
+2025-10-11 18:07:07 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 319 created successfully
+2025-10-11 18:07:07 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590F7C640>"}
+2025-10-11 18:07:07 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "319"}}
+2025-10-11 18:07:07 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FF9330>", "ticket_create": "message='The mobile app keeps crashing when I open it on iOS.'"}}
+2025-10-11 18:07:07 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 320 created successfully
+2025-10-11 18:07:07 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FF9540>"}
+2025-10-11 18:07:07 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "320"}}
+2025-10-11 18:07:08 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FFA6E0>", "ticket_create": "message='I want to cancel my premium subscription immediately.'"}}
+2025-10-11 18:07:08 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 321 created successfully
+2025-10-11 18:07:08 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FFAB30>"}
+2025-10-11 18:07:08 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "321"}}
+2025-10-11 18:07:15 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.192"}
+2025-10-11 18:07:16 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.179"}
+2025-10-11 18:07:16 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "8.273"}
+2025-10-11 18:07:16 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "8.235"}
+2025-10-11 18:07:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.330"}
+2025-10-11 18:07:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FFAC50>", "ticket_create": "message='My payment was declined but my card has sufficient funds.'"}}
+2025-10-11 18:07:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 322 created successfully
+2025-10-11 18:07:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FFAD10>"}
+2025-10-11 18:07:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "322"}}
+2025-10-11 18:07:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590F7EDA0>", "ticket_create": "message='I received a damaged product in my order from yesterday.'"}}
+2025-10-11 18:07:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 323 created successfully
+2025-10-11 18:07:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590F7D4B0>"}
+2025-10-11 18:07:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "323"}}
+2025-10-11 18:07:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FF9030>", "ticket_create": "message='The website loads very slowly on my Chrome browser.'"}}
+2025-10-11 18:07:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 324 created successfully
+2025-10-11 18:07:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.003", "result": "<backend.models.Ticket object at 0x0000025590FF9060>"}
+2025-10-11 18:07:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "324"}}
+2025-10-11 18:07:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "0.698"}
+2025-10-11 18:07:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FF9FC0>", "ticket_create": "message='How can I change my shipping address for order #67890?'"}}
+2025-10-11 18:07:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 325 created successfully
+2025-10-11 18:07:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FF8EB0>"}
+2025-10-11 18:07:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "325"}}
+2025-10-11 18:07:23 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590F7FE80>", "ticket_create": "message=\"I updated my email but verification isn't working.\""}}
+2025-10-11 18:07:24 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 326 created successfully
+2025-10-11 18:07:24 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590F7CBB0>"}
+2025-10-11 18:07:24 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "326"}}
+2025-10-11 18:07:24 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FFB730>", "ticket_create": "message=\"I got 'invalid promo code' error with code SAVE20.\""}}
+2025-10-11 18:07:24 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 327 created successfully
+2025-10-11 18:07:24 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FF82B0>"}
+2025-10-11 18:07:24 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "327"}}
+2025-10-11 18:07:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "3.544"}
+2025-10-11 18:07:28 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "6.037"}
+2025-10-11 18:07:28 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FFBA00>", "ticket_create": "message=\"The live chat feature isn't loading on your website.\""}}
+2025-10-11 18:07:28 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 328 created successfully
+2025-10-11 18:07:28 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FF8070>"}
+2025-10-11 18:07:28 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "328"}}
+2025-10-11 18:07:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "8.306"}
+2025-10-11 18:07:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FFA080>", "ticket_create": "message='When does my annual subscription automatically renew?'"}}
+2025-10-11 18:07:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 329 created successfully
+2025-10-11 18:07:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FFB850>"}
+2025-10-11 18:07:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "329"}}
+2025-10-11 18:07:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.130"}
+2025-10-11 18:07:37 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.638"}
+2025-10-11 18:07:38 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FFB730>", "ticket_create": "message='Tracking shows delivered but I never received package.'"}}
+2025-10-11 18:07:38 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 330 created successfully
+2025-10-11 18:07:38 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FF8250>"}
+2025-10-11 18:07:38 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "330"}}
+2025-10-11 18:07:39 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590F7C760>", "ticket_create": "message='Can I get an invoice for my purchase last week?'"}}
+2025-10-11 18:07:39 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 331 created successfully
+2025-10-11 18:07:39 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590F7E800>"}
+2025-10-11 18:07:39 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "331"}}
+2025-10-11 18:07:40 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.405"}
+2025-10-11 18:07:40 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590F7F430>", "ticket_create": "message=\"I forgot my username and recovery email isn't working.\""}}
+2025-10-11 18:07:40 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 332 created successfully
+2025-10-11 18:07:40 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590F7C430>"}
+2025-10-11 18:07:40 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "332"}}
+2025-10-11 18:07:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.076"}
+2025-10-11 18:07:45 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FFB160>", "ticket_create": "message=\"The refund for my cancelled order hasn't processed.\""}}
+2025-10-11 18:07:45 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 333 created successfully
+2025-10-11 18:07:45 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000025590FFBD60>"}
+2025-10-11 18:07:45 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "333"}}
+2025-10-11 18:07:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590A43550>", "ticket_create": "message=\"I can't add my credit card - says invalid card number.\""}}
+2025-10-11 18:07:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 334 created successfully
+2025-10-11 18:07:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000025590FF8460>"}
+2025-10-11 18:07:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "334"}}
+2025-10-11 18:07:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "7.301"}
+2025-10-11 18:07:49 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.555"}
+2025-10-11 18:07:50 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590F7DA20>", "ticket_create": "message='My account was locked after multiple failed login attempts.'"}}
+2025-10-11 18:07:50 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 335 created successfully
+2025-10-11 18:07:50 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590F7E170>"}
+2025-10-11 18:07:50 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "335"}}
+2025-10-11 18:07:52 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.434"}
+2025-10-11 18:07:55 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590F7E410>", "ticket_create": "message='Order confirmation emails are not coming through.'"}}
+2025-10-11 18:07:55 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 336 created successfully
+2025-10-11 18:07:55 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000025590F7C2B0>"}
+2025-10-11 18:07:55 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "336"}}
+2025-10-11 18:07:55 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.122"}
+2025-10-11 18:07:58 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.123"}
+2025-10-11 18:08:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.684"}
+2025-10-11 18:08:04 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.039"}
+2025-10-11 18:10:09 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-11 18:10:09 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 🧪 STARTING ULTRA ROBUST DEBUG LOGGER TEST
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ➡️ ENTER test_function | extra={"args": {"x": "5", "y": "3", "extra_param": "hello"}}
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - Inside test_function | extra={"x": 5, "y": 3, "kwargs": {"extra_param": "hello"}}
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ✅ EXIT test_function | extra={"duration_seconds": "0.114", "result": "8"}
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ➡️ ENTER test_function | extra={"args": {"x": "100", "y": "200"}}
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - Inside test_function | extra={"x": 100, "y": 200, "kwargs": {}}
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ✅ EXIT test_function | extra={"duration_seconds": "0.109", "result": "300"}
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ➡️ ENTER test_function | extra={"args": {"x": "hello", "y": "20"}}
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - Inside test_function | extra={"x": "hello", "y": 20, "kwargs": {}}
+2025-10-11 18:10:09 [ERROR   ] [MainThread] ultra_robust_debug:174 - 💥 EXCEPTION in test_function | exception=ValueError('Strings not allowed in this test') | traceback=Traceback (most recent call last):
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 215, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 326, in test_function
+    raise ValueError("Strings not allowed in this test")
+ValueError: Strings not allowed in this test
+
+2025-10-11 18:10:09 [ERROR   ] [MainThread] ultra_robust_debug:174 - Expected test error occurred | exception=ValueError('Strings not allowed in this test') | traceback=Traceback (most recent call last):
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 334, in <module>
+    test_function("hello", y=20)
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 215, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\Users\borge\Documents\projects\helpdesk\debug_logger.py", line 326, in test_function
+    raise ValueError("Strings not allowed in this test")
+ValueError: Strings not allowed in this test
+
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 🌐 HTTP REQUEST | extra={"http_method": "POST", "http_url": "https://api.example.com/data", "http_headers": "{\"Authorization\": \"Bearer token\"}", "http_body": "{\"key\": \"value\"}"}
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ✅ HTTP RESPONSE 200 | extra={"http_status": 200, "http_headers": "{\"Content-Type\": \"application/json\"}", "http_body": "{\"result\": \"success\"}", "http_duration_seconds": "0.450"}
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 🤖 AI REQUEST | extra={"ai_model": "llama3.2:3b", "ai_prompt_preview": "Classify this text...", "ai_prompt_length": 21, "ai_max_tokens": 200}
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - ✅ AI RESPONSE | extra={"ai_response": "{\"category\": \"TEST\", \"confidence\": 0.95}", "ai_duration_seconds": "2.340", "ai_success": true}
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 💾 DATABASE OPERATION | extra={"db_operation": "INSERT", "db_table": "tickets", "db_data": "{\"id\": 123, \"message\": \"test\"}", "db_duration_seconds": "0.012"}
+2025-10-11 18:10:09 [DEBUG   ] [MainThread] ultra_robust_debug:153 - 🧪 ULTRA ROBUST DEBUG LOGGER TEST COMPLETED
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590F7CE50>", "ticket_create": "message='You charged me twice for my last purchase on March 15th.'"}}
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 337 created successfully
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590F7CEE0>"}
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "337"}}
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "0.179"}
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590F7CE80>", "ticket_create": "message='The mobile app keeps crashing when I open it on iOS.'"}}
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 338 created successfully
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590F7E4A0>"}
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "338"}}
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FF92A0>", "ticket_create": "message=\"I can't log into my account after resetting my password.\""}}
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 339 created successfully
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FF8A90>"}
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "339"}}
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590A427D0>", "ticket_create": "message=\"My order #12345 hasn't arrived after 2 weeks.\""}}
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 340 created successfully
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.003", "result": "<backend.models.Ticket object at 0x0000025590A43CA0>"}
+2025-10-11 18:10:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "340"}}
+2025-10-11 18:10:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FFB760>", "ticket_create": "message='I want to cancel my premium subscription immediately.'"}}
+2025-10-11 18:10:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 341 created successfully
+2025-10-11 18:10:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FF9F30>"}
+2025-10-11 18:10:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "341"}}
+2025-10-11 18:10:33 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590F7FDF0>", "ticket_create": "message='I received a damaged product in my order from yesterday.'"}}
+2025-10-11 18:10:33 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 342 created successfully
+2025-10-11 18:10:33 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590F7CB20>"}
+2025-10-11 18:10:33 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "342"}}
+2025-10-11 18:10:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "2.603"}
+2025-10-11 18:10:37 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "5.607"}
+2025-10-11 18:10:37 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FFA6E0>", "ticket_create": "message='My payment was declined but my card has sufficient funds.'"}}
+2025-10-11 18:10:37 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 343 created successfully
+2025-10-11 18:10:37 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FF83A0>"}
+2025-10-11 18:10:37 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "343"}}
+2025-10-11 18:10:40 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "8.836"}
+2025-10-11 18:10:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002559101C9D0>", "ticket_create": "message='The website loads very slowly on my Chrome browser.'"}}
+2025-10-11 18:10:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 344 created successfully
+2025-10-11 18:10:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002559101FD30>"}
+2025-10-11 18:10:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "344"}}
+2025-10-11 18:10:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.040"}
+2025-10-11 18:10:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FF8F70>", "ticket_create": "message=\"I'm trying to cancel this shit fuck you\""}}
+2025-10-11 18:10:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 345 created successfully
+2025-10-11 18:10:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000025590FF8310>"}
+2025-10-11 18:10:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "345"}}
+2025-10-11 18:10:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.752"}
+2025-10-11 18:10:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002559101DD20>", "ticket_create": "message=\"I updated my email but verification isn't working.\""}}
+2025-10-11 18:10:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 346 created successfully
+2025-10-11 18:10:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002559101D090>"}
+2025-10-11 18:10:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "346"}}
+2025-10-11 18:10:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FF8D00>", "ticket_create": "message='How can I change my shipping address for order #67890?'"}}
+2025-10-11 18:10:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 347 created successfully
+2025-10-11 18:10:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000025590FFA740>"}
+2025-10-11 18:10:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "347"}}
+2025-10-11 18:10:47 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002559101C790>", "ticket_create": "message=\"I got 'invalid promo code' error with code SAVE20.\""}}
+2025-10-11 18:10:47 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 348 created successfully
+2025-10-11 18:10:47 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002559101D630>"}
+2025-10-11 18:10:47 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "348"}}
+2025-10-11 18:10:49 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.332"}
+2025-10-11 18:10:52 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.924"}
+2025-10-11 18:10:53 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002559101C130>", "ticket_create": "message=\"The live chat feature isn't loading on your website.\""}}
+2025-10-11 18:10:53 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 349 created successfully
+2025-10-11 18:10:53 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002559101EF50>"}
+2025-10-11 18:10:53 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "349"}}
+2025-10-11 18:10:55 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.559"}
+2025-10-11 18:10:57 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FF9EA0>", "ticket_create": "message='When does my annual subscription automatically renew?'"}}
+2025-10-11 18:10:57 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 350 created successfully
+2025-10-11 18:10:57 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FFAF50>"}
+2025-10-11 18:10:57 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "350"}}
+2025-10-11 18:10:58 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.755"}
+2025-10-11 18:11:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590BC85E0>", "ticket_create": "message='Can I get an invoice for my purchase last week?'"}}
+2025-10-11 18:11:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 351 created successfully
+2025-10-11 18:11:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000025590BC8CD0>"}
+2025-10-11 18:11:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "351"}}
+2025-10-11 18:11:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "14.787"}
+2025-10-11 18:11:04 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "16.942"}
+2025-10-11 18:11:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002559101E470>", "ticket_create": "message=\"I forgot my username and recovery email isn't working.\""}}
+2025-10-11 18:11:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 352 created successfully
+2025-10-11 18:11:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.005", "result": "<backend.models.Ticket object at 0x000002559101F130>"}
+2025-10-11 18:11:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "352"}}
+2025-10-11 18:11:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FF9540>", "ticket_create": "message='Tracking shows delivered but I never received package.'"}}
+2025-10-11 18:11:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 353 created successfully
+2025-10-11 18:11:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000025590FF9A50>"}
+2025-10-11 18:11:06 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "353"}}
+2025-10-11 18:11:07 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "13.322"}
+2025-10-11 18:11:10 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.500"}
+2025-10-11 18:11:12 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FF9210>", "ticket_create": "message=\"I can't add my credit card - says invalid card number.\""}}
+2025-10-11 18:11:12 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 354 created successfully
+2025-10-11 18:11:12 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FFB2E0>"}
+2025-10-11 18:11:12 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "354"}}
+2025-10-11 18:11:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.937"}
+2025-10-11 18:11:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002559101DA80>", "ticket_create": "message=\"The refund for my cancelled order hasn't processed.\""}}
+2025-10-11 18:11:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 355 created successfully
+2025-10-11 18:11:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x000002559101ECB0>"}
+2025-10-11 18:11:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "355"}}
+2025-10-11 18:11:16 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.558"}
+2025-10-11 18:11:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002559101F8E0>", "ticket_create": "message='My account was locked after multiple failed login attempts.'"}}
+2025-10-11 18:11:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 356 created successfully
+2025-10-11 18:11:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002559101D720>"}
+2025-10-11 18:11:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "356"}}
+2025-10-11 18:11:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.605"}
+2025-10-11 18:11:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000025590FF9870>", "ticket_create": "message='Order confirmation emails are not coming through.'"}}
+2025-10-11 18:11:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 357 created successfully
+2025-10-11 18:11:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000025590FFA800>"}
+2025-10-11 18:11:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "357"}}
+2025-10-11 18:11:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.557"}
+2025-10-11 18:11:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.192"}
+2025-10-11 18:11:28 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.277"}
+2025-10-11 18:11:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.382"}
+2025-10-12 01:38:50 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:38:50 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:41:00 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 01:41:08 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:41:08 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:43:23 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 01:43:31 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:43:31 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:45:42 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 01:45:49 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:45:49 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:45:57 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:45:57 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:46:50 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:46:50 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:48:01 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:48:01 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:48:33 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:48:33 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:48:41 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:48:41 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:48:48 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:48:48 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:50:13 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:50:13 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:50:26 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:50:26 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:51:05 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:51:05 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:51:18 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:51:18 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:52:23 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:52:23 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 01:54:06 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 01:54:06 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 02:00:25 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 02:00:25 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 02:02:37 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 02:02:56 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF7CEB0>", "ticket_create": "message='AYO CUH MAH SHIT BROKEN ESSE'"}}
+2025-10-12 02:02:56 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 358 created successfully
+2025-10-12 02:02:56 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.015", "result": "<backend.models.Ticket object at 0x0000017CECF7FA00>"}
+2025-10-12 02:02:56 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "358"}}
+2025-10-12 02:02:56 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "0.062"}
+2025-10-12 02:03:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF7F880>", "ticket_create": "message=\"My order #12345 hasn't arrived after 2 weeks.\""}}
+2025-10-12 02:03:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 359 created successfully
+2025-10-12 02:03:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CECF7EDA0>"}
+2025-10-12 02:03:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "359"}}
+2025-10-12 02:03:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "0.023"}
+2025-10-12 02:03:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF87430>", "ticket_create": "message='The mobile app keeps crashing when I open it on iOS.'"}}
+2025-10-12 02:03:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 360 created successfully
+2025-10-12 02:03:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CECF870D0>"}
+2025-10-12 02:03:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "360"}}
+2025-10-12 02:03:14 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF85660>", "ticket_create": "message=\"I can't log into my account after resetting my password.\""}}
+2025-10-12 02:03:14 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 361 created successfully
+2025-10-12 02:03:14 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CECF85060>"}
+2025-10-12 02:03:14 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "361"}}
+2025-10-12 02:03:15 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D4760>", "ticket_create": "message='You charged me twice for my last purchase on March 15th.'"}}
+2025-10-12 02:03:15 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 362 created successfully
+2025-10-12 02:03:15 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CF22D4BB0>"}
+2025-10-12 02:03:15 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "362"}}
+2025-10-12 02:03:15 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D5DE0>", "ticket_create": "message='I want to cancel my premium subscription immediately.'"}}
+2025-10-12 02:03:15 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 363 created successfully
+2025-10-12 02:03:15 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CF22D6230>"}
+2025-10-12 02:03:15 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "363"}}
+2025-10-12 02:03:16 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "3.001"}
+2025-10-12 02:03:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF84E80>", "ticket_create": "message='I received a damaged product in my order from yesterday.'"}}
+2025-10-12 02:03:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 364 created successfully
+2025-10-12 02:03:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CECF85BD0>"}
+2025-10-12 02:03:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "364"}}
+2025-10-12 02:03:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "4.604"}
+2025-10-12 02:03:20 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF85EA0>", "ticket_create": "message='The website loads very slowly on my Chrome browser.'"}}
+2025-10-12 02:03:20 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 365 created successfully
+2025-10-12 02:03:20 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CECF86BC0>"}
+2025-10-12 02:03:20 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "365"}}
+2025-10-12 02:03:20 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF2288700>", "ticket_create": "message='My payment was declined but my card has sufficient funds.'"}}
+2025-10-12 02:03:20 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 366 created successfully
+2025-10-12 02:03:20 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF2288220>"}
+2025-10-12 02:03:20 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "366"}}
+2025-10-12 02:03:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "7.430"}
+2025-10-12 02:03:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.048"}
+2025-10-12 02:03:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D6410>", "ticket_create": "message=\"I updated my email but verification isn't working.\""}}
+2025-10-12 02:03:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 367 created successfully
+2025-10-12 02:03:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF22D6500>"}
+2025-10-12 02:03:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "367"}}
+2025-10-12 02:03:28 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.645"}
+2025-10-12 02:03:30 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF855A0>", "ticket_create": "message='How can I change my shipping address for order #67890?'"}}
+2025-10-12 02:03:30 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 368 created successfully
+2025-10-12 02:03:30 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CECF84E80>"}
+2025-10-12 02:03:30 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "368"}}
+2025-10-12 02:03:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.192"}
+2025-10-12 02:03:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D40D0>", "ticket_create": "message=\"I got 'invalid promo code' error with code SAVE20.\""}}
+2025-10-12 02:03:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 369 created successfully
+2025-10-12 02:03:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CF22D6E00>"}
+2025-10-12 02:03:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "369"}}
+2025-10-12 02:03:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "13.930"}
+2025-10-12 02:03:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D6CE0>", "ticket_create": "message=\"The live chat feature isn't loading on your website.\""}}
+2025-10-12 02:03:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 370 created successfully
+2025-10-12 02:03:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF22D6C50>"}
+2025-10-12 02:03:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "370"}}
+2025-10-12 02:03:37 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.837"}
+2025-10-12 02:03:40 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.427"}
+2025-10-12 02:03:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF871C0>", "ticket_create": "message='When does my annual subscription automatically renew?'"}}
+2025-10-12 02:03:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 371 created successfully
+2025-10-12 02:03:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CECF84E20>"}
+2025-10-12 02:03:41 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "371"}}
+2025-10-12 02:03:42 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D61A0>", "ticket_create": "message='Can I get an invoice for my purchase last week?'"}}
+2025-10-12 02:03:42 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 372 created successfully
+2025-10-12 02:03:42 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CF22D6470>"}
+2025-10-12 02:03:42 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "372"}}
+2025-10-12 02:03:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.275"}
+2025-10-12 02:03:44 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D41F0>", "ticket_create": "message='Tracking shows delivered but I never received package.'"}}
+2025-10-12 02:03:44 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 373 created successfully
+2025-10-12 02:03:44 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF22D4BE0>"}
+2025-10-12 02:03:44 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "373"}}
+2025-10-12 02:03:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.857"}
+2025-10-12 02:03:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D4EE0>", "ticket_create": "message=\"The refund for my cancelled order hasn't processed.\""}}
+2025-10-12 02:03:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 374 created successfully
+2025-10-12 02:03:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CF22D7F10>"}
+2025-10-12 02:03:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "374"}}
+2025-10-12 02:03:49 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "8.255"}
+2025-10-12 02:03:49 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF87A60>", "ticket_create": "message=\"I forgot my username and recovery email isn't working.\""}}
+2025-10-12 02:03:49 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 375 created successfully
+2025-10-12 02:03:49 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CECF86CE0>"}
+2025-10-12 02:03:49 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "375"}}
+2025-10-12 02:03:52 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.551"}
+2025-10-12 02:03:55 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.665"}
+2025-10-12 02:03:56 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D40D0>", "ticket_create": "message=\"I can't add my credit card - says invalid card number.\""}}
+2025-10-12 02:03:56 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 376 created successfully
+2025-10-12 02:03:56 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF22D52D0>"}
+2025-10-12 02:03:56 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "376"}}
+2025-10-12 02:03:57 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D4C70>", "ticket_create": "message='My account was locked after multiple failed login attempts.'"}}
+2025-10-12 02:03:57 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 377 created successfully
+2025-10-12 02:03:57 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF22D67D0>"}
+2025-10-12 02:03:57 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "377"}}
+2025-10-12 02:03:58 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.679"}
+2025-10-12 02:04:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.828"}
+2025-10-12 02:04:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D7DF0>", "ticket_create": "message='Order confirmation emails are not coming through.'"}}
+2025-10-12 02:04:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 378 created successfully
+2025-10-12 02:04:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CF22D5000>"}
+2025-10-12 02:04:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "378"}}
+2025-10-12 02:04:04 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "7.831"}
+2025-10-12 02:04:07 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.015"}
+2025-10-12 02:04:10 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.006"}
+2025-10-12 02:09:10 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF7C2E0>", "ticket_create": "message='The mobile app keeps crashing when I open it on iOS.'"}}
+2025-10-12 02:09:10 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 379 created successfully
+2025-10-12 02:09:10 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CF22D5FF0>"}
+2025-10-12 02:09:10 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "379"}}
+2025-10-12 02:09:10 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "0.021"}
+2025-10-12 02:09:10 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D7430>", "ticket_create": "message='You charged me twice for my last purchase on March 15th.'"}}
+2025-10-12 02:09:10 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 380 created successfully
+2025-10-12 02:09:10 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CF22D54B0>"}
+2025-10-12 02:09:10 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "380"}}
+2025-10-12 02:09:11 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D63B0>", "ticket_create": "message=\"My order #12345 hasn't arrived after 2 weeks.\""}}
+2025-10-12 02:09:11 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 381 created successfully
+2025-10-12 02:09:11 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF22D6C20>"}
+2025-10-12 02:09:11 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "381"}}
+2025-10-12 02:09:11 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D6CE0>", "ticket_create": "message='I want to cancel my premium subscription immediately.'"}}
+2025-10-12 02:09:11 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 382 created successfully
+2025-10-12 02:09:11 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF22D58A0>"}
+2025-10-12 02:09:11 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "382"}}
+2025-10-12 02:09:12 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF86740>", "ticket_create": "message=\"I can't log into my account after resetting my password.\""}}
+2025-10-12 02:09:12 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 383 created successfully
+2025-10-12 02:09:12 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CECF845E0>"}
+2025-10-12 02:09:12 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "383"}}
+2025-10-12 02:09:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "2.775"}
+2025-10-12 02:09:14 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D61A0>", "ticket_create": "message='I received a damaged product in my order from yesterday.'"}}
+2025-10-12 02:09:14 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 384 created successfully
+2025-10-12 02:09:14 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CF22D6710>"}
+2025-10-12 02:09:14 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "384"}}
+2025-10-12 02:09:16 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "4.861"}
+2025-10-12 02:09:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D6A70>", "ticket_create": "message='My payment was declined but my card has sufficient funds.'"}}
+2025-10-12 02:09:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 385 created successfully
+2025-10-12 02:09:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CF22D6E30>"}
+2025-10-12 02:09:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "385"}}
+2025-10-12 02:09:19 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "7.563"}
+2025-10-12 02:09:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D5420>", "ticket_create": "message='The website loads very slowly on my Chrome browser.'"}}
+2025-10-12 02:09:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 386 created successfully
+2025-10-12 02:09:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF22D5C00>"}
+2025-10-12 02:09:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "386"}}
+2025-10-12 02:09:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.912"}
+2025-10-12 02:09:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF850F0>", "ticket_create": "message=\"I updated my email but verification isn't working.\""}}
+2025-10-12 02:09:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 387 created successfully
+2025-10-12 02:09:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CECF87BE0>"}
+2025-10-12 02:09:22 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "387"}}
+2025-10-12 02:09:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.564"}
+2025-10-12 02:09:27 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D71F0>", "ticket_create": "message='How can I change my shipping address for order #67890?'"}}
+2025-10-12 02:09:27 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 388 created successfully
+2025-10-12 02:09:27 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF22D7430>"}
+2025-10-12 02:09:27 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "388"}}
+2025-10-12 02:09:28 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.768"}
+2025-10-12 02:09:29 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D6E30>", "ticket_create": "message=\"I got 'invalid promo code' error with code SAVE20.\""}}
+2025-10-12 02:09:29 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 389 created successfully
+2025-10-12 02:09:29 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF2289720>"}
+2025-10-12 02:09:29 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "389"}}
+2025-10-12 02:09:31 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.280"}
+2025-10-12 02:09:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D5060>", "ticket_create": "message=\"The live chat feature isn't loading on your website.\""}}
+2025-10-12 02:09:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 390 created successfully
+2025-10-12 02:09:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF22D7760>"}
+2025-10-12 02:09:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "390"}}
+2025-10-12 02:09:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.545"}
+2025-10-12 02:09:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF85630>", "ticket_create": "message='Can I get an invoice for my purchase last week?'"}}
+2025-10-12 02:09:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 391 created successfully
+2025-10-12 02:09:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CECF84D90>"}
+2025-10-12 02:09:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "391"}}
+2025-10-12 02:09:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22893F0>", "ticket_create": "message='When does my annual subscription automatically renew?'"}}
+2025-10-12 02:09:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 392 created successfully
+2025-10-12 02:09:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CF228A650>"}
+2025-10-12 02:09:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "392"}}
+2025-10-12 02:09:37 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.281"}
+2025-10-12 02:09:40 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.362"}
+2025-10-12 02:09:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.803"}
+2025-10-12 02:09:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D7400>", "ticket_create": "message='Tracking shows delivered but I never received package.'"}}
+2025-10-12 02:09:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 393 created successfully
+2025-10-12 02:09:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CF22D5330>"}
+2025-10-12 02:09:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "393"}}
+2025-10-12 02:09:44 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF22D6770>", "ticket_create": "message=\"I forgot my username and recovery email isn't working.\""}}
+2025-10-12 02:09:44 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 394 created successfully
+2025-10-12 02:09:44 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF22D41C0>"}
+2025-10-12 02:09:44 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "394"}}
+2025-10-12 02:09:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.643"}
+2025-10-12 02:09:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF850C0>", "ticket_create": "message=\"The refund for my cancelled order hasn't processed.\""}}
+2025-10-12 02:09:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 395 created successfully
+2025-10-12 02:09:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000017CECF86CB0>"}
+2025-10-12 02:09:46 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "395"}}
+2025-10-12 02:09:49 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.381"}
+2025-10-12 02:09:50 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF228A590>", "ticket_create": "message='My account was locked after multiple failed login attempts.'"}}
+2025-10-12 02:09:50 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 396 created successfully
+2025-10-12 02:09:50 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF228A5C0>"}
+2025-10-12 02:09:50 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "396"}}
+2025-10-12 02:09:51 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CF228A080>", "ticket_create": "message=\"I can't add my credit card - says invalid card number.\""}}
+2025-10-12 02:09:51 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 397 created successfully
+2025-10-12 02:09:51 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CF2288CD0>"}
+2025-10-12 02:09:51 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "397"}}
+2025-10-12 02:09:52 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "8.884"}
+2025-10-12 02:09:55 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.024"}
+2025-10-12 02:09:58 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.846"}
+2025-10-12 02:09:59 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000017CECF86C20>", "ticket_create": "message='Order confirmation emails are not coming through.'"}}
+2025-10-12 02:09:59 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 398 created successfully
+2025-10-12 02:09:59 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000017CECF864A0>"}
+2025-10-12 02:09:59 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "398"}}
+2025-10-12 02:10:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.417"}
+2025-10-12 02:10:04 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "13.185"}
+2025-10-12 02:10:07 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "8.035"}
+2025-10-12 02:16:58 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 02:16:58 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 02:19:06 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 02:24:17 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 02:24:17 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 02:26:30 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 02:26:38 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 02:26:38 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 02:28:50 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 02:28:59 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 02:28:59 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 02:31:10 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 02:33:02 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002919B2106D0>", "ticket_create": "message=\"My order #12345 hasn't arrived after 2 weeks.\""}}
+2025-10-12 02:33:02 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002919B210130>", "ticket_create": "message=\"I can't log into my account after resetting my password.\""}}
+2025-10-12 02:33:02 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 399 created successfully
+2025-10-12 02:33:02 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 400 created successfully
+2025-10-12 02:33:02 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.018", "result": "<backend.models.Ticket object at 0x000002919B210940>"}
+2025-10-12 02:33:02 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.015", "result": "<backend.models.Ticket object at 0x000002919B2118A0>"}
+2025-10-12 02:33:02 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "399"}}
+2025-10-12 02:33:02 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "400"}}
+2025-10-12 02:33:03 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000029196020700>", "ticket_create": "message='You charged me twice for my last purchase on March 15th.'"}}
+2025-10-12 02:33:03 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 401 created successfully
+2025-10-12 02:33:03 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000029196020B50>"}
+2025-10-12 02:33:03 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "401"}}
+2025-10-12 02:33:03 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000029196021D80>", "ticket_create": "message='The mobile app keeps crashing when I open it on iOS.'"}}
+2025-10-12 02:33:03 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 402 created successfully
+2025-10-12 02:33:03 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x00000291960221D0>"}
+2025-10-12 02:33:03 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "402"}}
+2025-10-12 02:33:03 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000029196023400>", "ticket_create": "message='I want to cancel my premium subscription immediately.'"}}
+2025-10-12 02:33:03 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 403 created successfully
+2025-10-12 02:33:03 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000029196023850>"}
+2025-10-12 02:33:03 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "403"}}
+2025-10-12 02:33:13 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "10.812"}
+2025-10-12 02:33:14 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.298"}
+2025-10-12 02:33:14 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.250"}
+2025-10-12 02:33:15 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.537"}
+2025-10-12 02:33:15 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.042"}
+2025-10-12 02:33:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000291960435B0>", "ticket_create": "message='I received a damaged product in my order from yesterday.'"}}
+2025-10-12 02:33:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 404 created successfully
+2025-10-12 02:33:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000029196040190>"}
+2025-10-12 02:33:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "404"}}
+2025-10-12 02:33:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000029196023B80>", "ticket_create": "message='How can I change my shipping address for order #67890?'"}}
+2025-10-12 02:33:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 405 created successfully
+2025-10-12 02:33:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000029196023760>"}
+2025-10-12 02:33:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "405"}}
+2025-10-12 02:33:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000029196022A40>", "ticket_create": "message='The website loads very slowly on my Chrome browser.'"}}
+2025-10-12 02:33:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 406 created successfully
+2025-10-12 02:33:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x00000291960224D0>"}
+2025-10-12 02:33:17 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "406"}}
+2025-10-12 02:33:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000291960226E0>", "ticket_create": "message='My payment was declined but my card has sufficient funds.'"}}
+2025-10-12 02:33:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 407 created successfully
+2025-10-12 02:33:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x00000291960213C0>"}
+2025-10-12 02:33:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "407"}}
+2025-10-12 02:33:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002919B2C0820>", "ticket_create": "message=\"I updated my email but verification isn't working.\""}}
+2025-10-12 02:33:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 408 created successfully
+2025-10-12 02:33:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002919B2C06D0>"}
+2025-10-12 02:33:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "408"}}
+2025-10-12 02:33:18 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "1.671"}
+2025-10-12 02:33:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002919B2122C0>", "ticket_create": "message=\"I got 'invalid promo code' error with code SAVE20.\""}}
+2025-10-12 02:33:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 409 created successfully
+2025-10-12 02:33:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002919B211F00>"}
+2025-10-12 02:33:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "409"}}
+2025-10-12 02:33:21 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "4.166"}
+2025-10-12 02:33:24 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "6.898"}
+2025-10-12 02:33:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000029196042A70>", "ticket_create": "message=\"The live chat feature isn't loading on your website.\""}}
+2025-10-12 02:33:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 410 created successfully
+2025-10-12 02:33:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x00000291960410C0>"}
+2025-10-12 02:33:25 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "410"}}
+2025-10-12 02:33:27 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.716"}
+2025-10-12 02:33:28 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000029196020A90>", "ticket_create": "message='When does my annual subscription automatically renew?'"}}
+2025-10-12 02:33:28 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 411 created successfully
+2025-10-12 02:33:28 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000029196020250>"}
+2025-10-12 02:33:28 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "411"}}
+2025-10-12 02:33:30 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.610"}
+2025-10-12 02:33:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x000002919B2C0CD0>", "ticket_create": "message='Can I get an invoice for my purchase last week?'"}}
+2025-10-12 02:33:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 412 created successfully
+2025-10-12 02:33:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x000002919B2C0760>"}
+2025-10-12 02:33:32 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "412"}}
+2025-10-12 02:33:33 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000029196021270>", "ticket_create": "message='Tracking shows delivered but I never received package.'"}}
+2025-10-12 02:33:33 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 413 created successfully
+2025-10-12 02:33:33 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000029196023BE0>"}
+2025-10-12 02:33:33 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "413"}}
+2025-10-12 02:33:34 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.939"}
+2025-10-12 02:33:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.204"}
+2025-10-12 02:33:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000029196042590>", "ticket_create": "message=\"I forgot my username and recovery email isn't working.\""}}
+2025-10-12 02:33:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 414 created successfully
+2025-10-12 02:33:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000029196040EB0>"}
+2025-10-12 02:33:36 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "414"}}
+2025-10-12 02:33:39 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.471"}
+2025-10-12 02:33:42 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x00000291960435B0>", "ticket_create": "message=\"The refund for my cancelled order hasn't processed.\""}}
+2025-10-12 02:33:42 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 415 created successfully
+2025-10-12 02:33:42 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x0000029196040220>"}
+2025-10-12 02:33:42 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "415"}}
+2025-10-12 02:33:42 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.999"}
+2025-10-12 02:33:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000029196020F10>", "ticket_create": "message=\"I can't add my credit card - says invalid card number.\""}}
+2025-10-12 02:33:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 416 created successfully
+2025-10-12 02:33:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000029196020550>"}
+2025-10-12 02:33:43 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "416"}}
+2025-10-12 02:33:45 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.203"}
+2025-10-12 02:33:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000029196041750>", "ticket_create": "message='Order confirmation emails are not coming through.'"}}
+2025-10-12 02:33:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 417 created successfully
+2025-10-12 02:33:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.002", "result": "<backend.models.Ticket object at 0x00000291960422C0>"}
+2025-10-12 02:33:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "417"}}
+2025-10-12 02:33:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.create_ticket | extra={"args": {"db": "<sqlalchemy.orm.session.Session object at 0x0000029196023A90>", "ticket_create": "message='My account was locked after multiple failed login attempts.'"}}
+2025-10-12 02:33:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ Ticket 418 created successfully
+2025-10-12 02:33:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.create_ticket | extra={"duration_seconds": "0.001", "result": "<backend.models.Ticket object at 0x0000029196022230>"}
+2025-10-12 02:33:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ➡️ ENTER backend.service.analyze_ticket_service | extra={"args": {"ticket_id": "418"}}
+2025-10-12 02:33:48 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.930"}
+2025-10-12 02:33:51 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.789"}
+2025-10-12 02:33:54 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "11.279"}
+2025-10-12 02:33:58 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "9.765"}
+2025-10-12 02:34:01 [DEBUG   ] [AnyIO worker thread] ultra_robust_debug:153 - ✅ EXIT backend.service.analyze_ticket_service | extra={"duration_seconds": "12.318"}
+2025-10-12 02:36:26 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 02:36:26 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 02:38:39 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 02:38:47 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 02:38:47 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 02:41:00 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 02:41:08 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 02:41:08 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 02:43:17 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 02:43:25 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 02:43:25 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 02:45:36 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 02:56:41 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 02:56:41 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 02:59:18 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 02:59:27 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 02:59:27 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 03:02:05 [DEBUG   ] [MainThread] ultra_robust_debug:153 - FastAPI starting up...
+2025-10-12 03:09:17 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ File logging enabled (rotating)
+2025-10-12 03:09:17 [INFO    ] [MainThread] ultra_robust_debug:103 - ✅ Debug logger initialized successfully
+2025-10-12 15:48:51 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 15:48:51 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 15:51:36 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-12 16:13:13 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 16:13:13 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 16:15:25 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-12 16:15:33 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 16:15:33 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 16:17:41 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-12 16:17:48 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 16:17:48 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 16:19:58 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-12 16:31:35 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 16:31:35 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 16:33:46 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-12 16:33:54 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 16:33:54 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 16:36:02 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-12 16:36:10 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 16:36:10 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 16:38:19 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-12 19:44:58 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 19:44:58 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 19:49:11 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-12 21:50:07 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 21:50:07 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 21:54:29 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 21:54:29 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 21:58:51 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 21:58:51 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 22:34:15 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 22:34:15 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 23:11:10 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 23:11:10 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 23:40:14 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 23:40:14 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 23:45:01 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-12 23:45:12 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 23:45:12 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 23:49:59 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-12 23:50:10 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-12 23:50:10 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-12 23:55:11 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 01:42:09 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 01:42:09 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 01:44:23 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 03:31:31 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 03:31:31 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 03:33:45 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 03:33:53 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 03:33:53 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 03:36:03 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 12:39:27 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 12:39:27 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 12:42:06 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 14:36:35 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 14:36:35 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 14:39:20 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 14:39:29 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 14:39:29 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 14:42:14 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 14:56:42 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 14:56:42 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 14:59:06 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 14:59:14 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 14:59:14 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 15:01:26 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 15:58:23 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 15:58:23 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 16:00:33 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 18:25:12 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 18:25:12 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 18:28:04 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 19:11:15 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 19:11:15 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 19:11:44 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 19:11:44 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 19:13:30 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 19:13:51 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 19:13:51 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 19:14:42 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 19:14:42 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 19:16:10 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-13 19:16:18 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-13 19:16:18 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-13 19:18:32 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-14 05:50:41 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-14 05:50:41 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-14 07:20:05 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-14 07:20:05 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-14 07:23:00 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-14 07:23:10 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-14 07:23:10 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-14 07:25:43 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-14 07:29:08 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-14 07:29:08 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-14 07:38:24 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-14 07:38:24 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-14 07:40:50 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-14 07:40:59 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-14 07:40:59 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-14 07:43:36 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-14 07:43:45 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-14 07:43:45 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-14 07:46:15 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
+2025-10-14 07:46:24 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ File logging enabled (rotating)
+2025-10-14 07:46:24 [INFO    ] [MainThread] ultra_robust_debug:98 - ✅ Debug logger initialized successfully
+2025-10-14 07:48:53 [DEBUG   ] [MainThread] ultra_robust_debug:144 - FastAPI starting up...
