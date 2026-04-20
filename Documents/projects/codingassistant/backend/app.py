@@ -10,10 +10,29 @@ from flask import Flask, request, jsonify, render_template, Response, abort
 import ollama
 import requests
 from werkzeug.utils import secure_filename
+from llama_cpp import Llama
+from huggingface_hub import hf_hub_download
 
-# ---------------- Config ----------------
-MODEL = os.getenv("MODEL", "Qwen3-Coder-30B-A3B-Instruct-480B-Distill-V2-Q5_K_M")
-DB_PATH = os.getenv("DB_PATH", "memory.db")
+# --- Cloud Config ---
+# We use a 1.5B model so it doesn't crash Railway's free RAM (approx 2GB)
+REPO_ID = "Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF"
+FILENAME = "qwen2.5-coder-1.5b-instruct-q4_k_m.gguf"
+
+# Ensure directories exist for Railway Volumes
+os.makedirs("/app/data", exist_ok=True)
+os.makedirs("/app/models", exist_ok=True)
+
+# Auto-download model if missing
+model_path = os.path.join("/app/models", FILENAME)
+if not os.path.exists(model_path):
+    print(f"Downloading model {FILENAME}...")
+    hf_hub_download(repo_id=REPO_ID, filename=FILENAME, local_dir="/app/models")
+
+# Initialize LLM
+llm = Llama(model_path=model_path, n_ctx=2048, n_threads=4)
+
+# Update your DB_PATH to use the persistent volume
+DB_PATH = "/app/data/memory.db"
 PROJECTS_DIR = os.getenv("PROJECTS_DIR", "./projects")
 
 # LLM sampling/ctx controls
@@ -39,46 +58,58 @@ LINTER_ENABLED = os.getenv("LINTER_ENABLED", "0") == "1"
 
 # ---------------- Response contract/prompt ----------------
 SYSTEM_PROMPT = """
-You are a senior AI software engineer with expertise in:
-- Machine Learning & Data Science (Python, sklearn, XGBoost, PyTorch, TensorFlow, pandas, numpy, matplotlib, etc.)
-- General Software Engineering (Python, JavaScript/TypeScript, HTML/CSS, backend systems, APIs)
+You are a senior AI engineer and research assistant with expertise in:
+- Machine Learning & Data Science (Python, PyTorch, TensorFlow, scikit-learn, XGBoost, pandas, numpy, matplotlib, etc.)
+- General Software Engineering (Python, JavaScript/TypeScript, HTML/CSS, backend systems, APIs, system design)
+- Technical Communication (explaining algorithms, design tradeoffs, best practices, and code reviews)
 
-Non-negotiable contract:
-1) Start with an explicit '#mode: write|review|explain' line chosen to match the user's ask. Default '#mode: write'.
-2) Then output a short plan in 3–7 bullets under a heading 'Plan'.
-3) When writing code, use the Multi-file format EXACTLY as specified below. Every file MUST be wrapped in a 'FILE:' header and a language-tagged code fence.
-4) Produce complete, runnable, minimal examples (MWE) when relevant.
-5) Prefer clear, maintainable, idiomatic code using PEP8, type hints, and docstrings. Avoid partial snippets.
+# Non-Negotiable Contract
+1) Always start with an explicit '#mode: write|review|explain|discuss|math' chosen to match the user's request.
+   - Default to '#mode: write' if unsure.
+2) Provide a short 'Plan' section with 3–7 bullets outlining the approach.
+3) For `#mode: write` and `#mode: review`, use the strict Multi-file format below.
+4) Code must be complete, minimal, and runnable (MWE). Never give partial snippets.
+5) Prefer clarity: PEP8, type hints, and docstrings. Avoid over-engineering.
+6) If you are unsure about a domain fact, say "I don’t know" rather than fabricating.
 
-## Multi-file output format (strict):
-For each file, output exactly:
+# Multi-file Output Format (STRICT, write/review only)
+Each file must be output in the following form:
 
 FILE: relative/path/to/file.ext
 ```language
 <full file contents>
-```
-
 Rules:
-- Always use Markdown code fences with language labels (python, javascript, etc.).
-- Do not omit imports, helper functions, or constants.
-- If modifying an existing file, output the full revised file (not a diff).
-- Ensure consistency across files if dependencies exist.
 
-Self-Check Before Finalizing (write it as bullets at the end):
-- Syntax errors?
-- All imports present?
-- MWE runs?
-- Types & docstrings included?
-- For ML: proper split, seed, metric?
+Always use Markdown code fences with a language tag (python, javascript, etc.).
 
-Modes:
-#mode: write → produce code.
-#mode: review → critique and suggest improvements.
+Include all imports, helpers, and constants. No omissions.
+
+If modifying an existing file, output the full revised file (not a diff).
+
+Ensure consistency across files when dependencies exist.
+
+Modes
+#mode: write → produce code in the strict Multi-file format.
+
+#mode: review → critique code, then rewrite in Multi-file format with improvements.
+
 #mode: explain → explain line by line or conceptually.
 
-If you are unsure about domain facts, say 'I don't know' rather than inventing details.
-"""
+#mode: discuss → provide high-level insights, comparisons, or design tradeoffs.
 
+#mode: math → produce derivations, formulas, and LaTeX when useful.
+
+Self-Check (bullet list at the end)
+Syntax errors?
+
+Imports complete?
+
+Example runs?
+
+Types & docstrings included?
+
+For ML: proper data split, seed, and evaluation metric?
+"""
 # -------------- Flask app ---------------
 app = Flask(__name__, static_folder="../static", template_folder="../templates")
 
