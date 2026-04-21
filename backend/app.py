@@ -7,7 +7,6 @@ import sqlite3
 import subprocess
 from typing import List, Dict, Tuple, Optional
 from flask import Flask, request, jsonify, render_template, Response, abort
-import ollama
 import requests
 from werkzeug.utils import secure_filename
 from llama_cpp import Llama
@@ -419,27 +418,22 @@ def chat():
     full_prompt, mode = build_full_prompt(project, user_text)
 
     try:
-        resp = ollama.generate(
-            model=MODEL,
-            prompt=full_prompt,
-            stream=False,
-            options={
-                "temperature": TEMPERATURE,
-                "top_p": TOP_P,
-                "seed": SEED,
-                "num_ctx": NUM_CTX,
-                "stop": ["\nUSER:", "\nSYSTEM:"],  # avoid the model continuing the prompt
-            },
+        # Use your initialized 'llm' object instead of ollama
+        resp = llm(
+            full_prompt,
+            max_tokens=NUM_CTX,
+            temperature=TEMPERATURE,
+            top_p=TOP_P,
+            stop=["\nUSER:", "\nSYSTEM:"],
+            echo=False
         )
-        assistant_text_raw = resp.get("response") or resp.get("text") or ""
+        assistant_text_raw = resp["choices"][0]["text"]
         assistant_text = enforce_response_contract(assistant_text_raw, default_mode=mode)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-    # Save message and any files that pass validation
     save_message(project, "assistant", assistant_text)
     saved_files = save_generated_files(project, assistant_text)
-
     return jsonify({"response": assistant_text, "saved_files": saved_files})
 
 @app.route("/stream", methods=["POST"])
@@ -447,29 +441,24 @@ def stream():
     data = request.json or {}
     project = data.get("project", "default")
     user_text = (data.get("message") or "").strip()
-    if not user_text:
-        return Response("data: ERROR: empty message\n\n", mimetype="text/event-stream")
-
+    
     save_message(project, "user", user_text)
     full_prompt, mode = build_full_prompt(project, user_text)
 
     def generate():
         try:
-            stream = ollama.generate(
-                model=MODEL,
-                prompt=full_prompt,
-                stream=True,
-                options={
-                    "temperature": TEMPERATURE,
-                    "top_p": TOP_P,
-                    "seed": SEED,
-                    "num_ctx": NUM_CTX,
-                    "stop": ["\nUSER:", "\nSYSTEM:"],
-                },
+            # Setting stream=True in llama-cpp
+            stream_res = llm(
+                full_prompt,
+                max_tokens=NUM_CTX,
+                temperature=TEMPERATURE,
+                top_p=TOP_P,
+                stop=["\nUSER:", "\nSYSTEM:"],
+                stream=True
             )
             assistant_text_raw = ""
-            for chunk in stream:
-                token = chunk.get("response") or ""
+            for chunk in stream_res:
+                token = chunk["choices"][0]["text"]
                 if token:
                     assistant_text_raw += token
                     safe_token = token.replace("\r", "").replace("\n", "\\n")
@@ -478,7 +467,6 @@ def stream():
             assistant_text = enforce_response_contract(assistant_text_raw, default_mode=mode)
             save_message(project, "assistant", assistant_text)
             saved_files = save_generated_files(project, assistant_text)
-
             yield f"data: {{\"saved_files\": {json.dumps(saved_files)} }}\n\n"
             yield "data: [DONE]\n\n"
         except Exception as e:
@@ -553,11 +541,7 @@ def delete_project():
 
 @app.route("/cancel", methods=["POST"])
 def cancel():
-    try:
-        ollama.cancel(model=MODEL)
-        return jsonify({"status": "cancelled"})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    return jsonify({"status": "Session reset requested", "note": "Inference is self-contained."})
 
 # ---------- Optional: local lint & run (guarded) ----------
 def _run_cmd(cmd: List[str], cwd: Optional[str] = None, timeout: int = 20) -> Tuple[int, str, str]:
