@@ -1,0 +1,8 @@
+flask
+python-dotenv
+requests
+flask
+gunicorn
+requests
+llama-cpp-python
+huggingface_hub
