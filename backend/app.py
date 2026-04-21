@@ -16,7 +16,7 @@ from huggingface_hub import hf_hub_download
 # We use a 1.5B model so it doesn't crash Railway's free RAM (approx 2GB)
 REPO_ID = "Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF"
 FILENAME = "qwen2.5-coder-1.5b-instruct-q4_k_m.gguf"
-
+MODEL = REPO_ID 
 # Ensure directories exist for Railway Volumes
 os.makedirs("/app/data", exist_ok=True)
 os.makedirs("/app/models", exist_ok=True)
@@ -37,7 +37,7 @@ PROJECTS_DIR = os.getenv("PROJECTS_DIR", "./projects")
 # LLM sampling/ctx controls
 TEMPERATURE = float(os.getenv("TEMPERATURE", "0.2"))
 TOP_P = float(os.getenv("TOP_P", "0.9"))
-NUM_CTX = int(os.getenv("NUM_CTX", "32768"))        # adjust to model capacity
+NUM_CTX = int(os.getenv("NUM_CTX", "2048")) 
 SEED = int(os.getenv("SEED", "7"))                  # make outputs deterministic-ish
 
 # Prompt/Context budgets
@@ -421,7 +421,7 @@ def chat():
         # Use your initialized 'llm' object instead of ollama
         resp = llm(
             full_prompt,
-            max_tokens=NUM_CTX,
+            max_tokens=512,
             temperature=TEMPERATURE,
             top_p=TOP_P,
             stop=["\nUSER:", "\nSYSTEM:"],
