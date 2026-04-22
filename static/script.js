@@ -157,6 +157,34 @@ sendBtn.addEventListener("click", async () => {
   });
 });
 
+async function uploadFile(project) {
+  const fileInput = document.getElementById('fileInput');
+  if (!fileInput.files.length) {
+    alert("Please select a file first.");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", fileInput.files[0]);
+
+  try {
+    const res = await fetch(`/upload_file/${project}`, {
+      method: "POST",
+      body: formData
+    });
+    const data = await res.json();
+    if (data.status === "ok") {
+      alert(`Successfully uploaded: ${data.filename}`);
+      fileInput.value = ""; // Clear the input
+    } else {
+      alert(`Upload failed: ${data.error}`);
+    }
+  } catch (err) {
+    console.error("Upload error:", err);
+    alert("Error uploading file.");
+  }
+}
+
 // ---------- Controls ----------
 stopBtn.addEventListener("click", () => {
   if (currentAbortController) {

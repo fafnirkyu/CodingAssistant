@@ -444,7 +444,7 @@ def stream():
     
     save_message(project, "user", user_text)
     # Using a tiny prompt for testing to ensure speed
-    full_prompt = f"USER: {user_text}\nASSISTANT:"
+    full_prompt, mode = build_full_prompt(project, user_text)
 
     def generate():
         # 1. IMMEDIATE Keep-Alive: Tell Railway the server is alive
@@ -454,10 +454,10 @@ def stream():
             # 2. Run inference with smaller max_tokens for speed
             stream_res = llm(
                 full_prompt,
-                max_tokens=150, 
+                max_tokens=1024, 
                 temperature=0.7,
                 stream=True,
-                stop=["USER:"]
+                stop=["USER:", "ASSISTANT:"]
             )
             
             for chunk in stream_res:
