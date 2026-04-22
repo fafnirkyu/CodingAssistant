@@ -442,40 +442,36 @@ def stream():
     project = data.get("project", "default")
     user_text = (data.get("message") or "").strip()
     
-    # Simple prompt build to save RAM
     save_message(project, "user", user_text)
+    # Using a tiny prompt for testing to ensure speed
     full_prompt = f"USER: {user_text}\nASSISTANT:"
 
     def generate():
-            # Immediate keep-alive for Railway gateway
-            yield "data:  \n\n"
+        # 1. IMMEDIATE Keep-Alive: Tell Railway the server is alive
+        yield "data:  \n\n" 
+        
+        try:
+            # 2. Run inference with smaller max_tokens for speed
+            stream_res = llm(
+                full_prompt,
+                max_tokens=150, 
+                temperature=0.7,
+                stream=True,
+                stop=["USER:"]
+            )
             
-            try:
-                # Short prompt to ensure immediate start
-                stream_res = llm(
-                    full_prompt,
-                    max_tokens=256,
-                    temperature=0.7,
-                    stream=True,
-                    stop=["USER:", "ASSISTANT:"]
-                )
-                
-                for chunk in stream_res:
-                    # Safely extract token
-                    choice = chunk.get("choices", [{}])[0]
-                    token = choice.get("text", "")
-                    
-                    if token:
-                        # CLEANING: Do not use replace in f-strings
-                        # Escape newlines for your script.js decoder
-                        safe_token = token.replace("\n", "\\n").replace("\r", "")
-                        yield f"data: {safe_token}\n\n"
-                
-                yield "data: [DONE]\n\n"
-            except Exception as e:
-                # Print to Railway logs so you can see exactly why it failed
-                print(f"CRITICAL INFERENCE ERROR: {str(e)}")
-                yield f"data: ERROR: {str(e)}\n\n"
+            for chunk in stream_res:
+                token = chunk.get("choices", [{}])[0].get("text", "")
+                if token:
+                    # 3. Clean token: replace actual newlines with escaped string
+                    # This is what your script.js expects
+                    safe_token = token.replace("\n", "\\n").replace("\r", "")
+                    yield f"data: {safe_token}\n\n"
+            
+            yield "data: [DONE]\n\n"
+        except Exception as e:
+            print(f"STREAM ERROR: {e}")
+            yield f"data: ERROR: {str(e)}\n\n"
 
     return Response(generate(), mimetype="text/event-stream")
 
