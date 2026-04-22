@@ -442,35 +442,32 @@ def stream():
     project = data.get("project", "default")
     user_text = (data.get("message") or "").strip()
     
+    # Simple prompt build to save RAM
     save_message(project, "user", user_text)
-    full_prompt, mode = build_full_prompt(project, user_text)
+    full_prompt = f"USER: {user_text}\nASSISTANT:"
 
     def generate():
-        yield "data: \n\n"
+        # 1. Send an immediate space to keep the gateway open
+        yield "data:  \n\n"
         
         try:
+            # 2. Run the 0.5B model
             stream_res = llm(
                 full_prompt,
-                max_tokens=512, 
-                temperature=TEMPERATURE,
-                top_p=TOP_P,
-                stop=["\nUSER:", "\nSYSTEM:"],
-                stream=True
+                max_tokens=200,
+                stream=True,
+                stop=["USER:"]
             )
-            assistant_text_raw = ""
+            
             for chunk in stream_res:
                 token = chunk["choices"][0]["text"]
                 if token:
-                    assistant_text_raw += token
-                    safe_token = token.replace("\r", "").replace("\n", "\\n")
-                    yield f"data: {safe_token}\n\n"
+                    # Format for your script.js
+                    yield f"data: {token.replace(chr(10), '\\n')}\n\n"
 
-            assistant_text = enforce_response_contract(assistant_text_raw, default_mode=mode)
-            save_message(project, "assistant", assistant_text)
-            saved_files = save_generated_files(project, assistant_text)
-            yield f"data: {{\"saved_files\": {json.dumps(saved_files)} }}\n\n"
             yield "data: [DONE]\n\n"
         except Exception as e:
+            print(f"STREAM ERROR: {e}")
             yield f"data: ERROR: {str(e)}\n\n"
 
     return Response(generate(), mimetype="text/event-stream")
