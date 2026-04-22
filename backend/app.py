@@ -14,9 +14,9 @@ from huggingface_hub import hf_hub_download
 
 # --- Cloud Config ---
 # We use a 1.5B model so it doesn't crash Railway's free RAM (approx 2GB)
-REPO_ID = "Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF"
-FILENAME = "qwen2.5-coder-1.5b-instruct-q4_k_m.gguf"
-MODEL = REPO_ID 
+REPO_ID = "Qwen/Qwen2.5-Coder-0.5B-Instruct-GGUF"
+FILENAME = "qwen2.5-coder-0.5b-instruct-q4_k_m.gguf"
+MODEL = REPO_ID
 # Ensure directories exist for Railway Volumes
 os.makedirs("/app/data", exist_ok=True)
 os.makedirs("/app/models", exist_ok=True)
