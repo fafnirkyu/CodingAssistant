@@ -14,8 +14,8 @@ from huggingface_hub import hf_hub_download
 
 # --- Cloud Config ---
 # We use a 1.5B model so it doesn't crash Railway's free RAM (approx 2GB)
-REPO_ID = "Qwen/Qwen2.5-Coder-0.5B-Instruct-GGUF"
-FILENAME = "qwen2.5-coder-0.5b-instruct-q4_k_m.gguf"
+REPO_ID = "Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF"
+FILENAME = "qwen2.5-coder-1.5b-instruct-q4_k_m.gguf"
 MODEL = REPO_ID
 # Ensure directories exist for Railway Volumes
 os.makedirs("/app/data", exist_ok=True)
@@ -28,7 +28,7 @@ if not os.path.exists(model_path):
     hf_hub_download(repo_id=REPO_ID, filename=FILENAME, local_dir="/app/models")
 
 # Initialize LLM
-llm = Llama(model_path=model_path, n_ctx=2048, n_threads=2)
+llm = Llama(model_path=model_path, n_ctx=4096, n_threads=4, n_batch=512)
 
 # Update your DB_PATH to use the persistent volume
 DB_PATH = "/app/data/memory.db"
