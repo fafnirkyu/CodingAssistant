@@ -41,9 +41,9 @@ NUM_CTX = int(os.getenv("NUM_CTX", "2048"))
 SEED = int(os.getenv("SEED", "7"))                  # make outputs deterministic-ish
 
 # Prompt/Context budgets
-MAX_FILES_IN_CONTEXT = int(os.getenv("MAX_FILES_IN_CONTEXT", "80"))
-MAX_FILE_BYTES = int(os.getenv("MAX_FILE_BYTES", str(64 * 1024)))  # 64KB each
-MAX_PROMPT_CHARS = int(os.getenv("MAX_PROMPT_CHARS", str(40_000)))
+MAX_FILES_IN_CONTEXT = int(os.getenv("MAX_FILES_IN_CONTEXT", "10"))
+MAX_FILE_BYTES = int(os.getenv("MAX_FILE_BYTES", str(16 * 1024))) 
+MAX_PROMPT_CHARS = int(os.getenv("MAX_PROMPT_CHARS", str(46000)))
 
 # Save/write guardrails
 ALLOWED_EXTENSIONS = {
@@ -446,11 +446,12 @@ def stream():
     full_prompt, mode = build_full_prompt(project, user_text)
 
     def generate():
+        yield "data: \n\n"
+        
         try:
-            # Setting stream=True in llama-cpp
             stream_res = llm(
                 full_prompt,
-                max_tokens=NUM_CTX,
+                max_tokens=512, 
                 temperature=TEMPERATURE,
                 top_p=TOP_P,
                 stop=["\nUSER:", "\nSYSTEM:"],
