@@ -28,7 +28,7 @@ if not os.path.exists(model_path):
     hf_hub_download(repo_id=REPO_ID, filename=FILENAME, local_dir="/app/models")
 
 # Initialize LLM
-llm = Llama(model_path=model_path, n_ctx=8126, n_threads=4, n_batch=512, flash_attn=True)
+llm = Llama(model_path=model_path, n_ctx=4012, n_threads=4, n_batch=512, flash_attn=True)
 
 # Update your DB_PATH to use the persistent volume
 DB_PATH = "/app/data/memory.db"
@@ -417,7 +417,7 @@ def stream():
             # 2. Run inference with smaller max_tokens for speed
             stream_res = llm(
                 full_prompt,
-                max_tokens=2048, 
+                max_tokens=1024, 
                 temperature=0.7,
                 stream=True,
                 stop=["USER:", "ASSISTANT:"]
