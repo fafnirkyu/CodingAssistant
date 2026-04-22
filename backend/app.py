@@ -28,7 +28,7 @@ if not os.path.exists(model_path):
     hf_hub_download(repo_id=REPO_ID, filename=FILENAME, local_dir="/app/models")
 
 # Initialize LLM
-llm = Llama(model_path=model_path, n_ctx=4096, n_threads=4, n_batch=512)
+llm = Llama(model_path=model_path, n_ctx=4096, n_threads=4, n_batch=512, flash_attn=True)
 
 # Update your DB_PATH to use the persistent volume
 DB_PATH = "/app/data/memory.db"
@@ -473,7 +473,10 @@ def stream():
             print(f"STREAM ERROR: {e}")
             yield f"data: ERROR: {str(e)}\n\n"
 
-    return Response(generate(), mimetype="text/event-stream")
+    resp = Response(generate(), mimetype="text/event-stream")
+    resp.headers["X-Accel-Buffering"] = "no"
+    resp.headers["Cache-Control"] = "no-cache"
+    return resp
 
 @app.route("/search_web", methods=["POST"])
 def search_web():
