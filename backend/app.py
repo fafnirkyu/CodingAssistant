@@ -28,7 +28,7 @@ if not os.path.exists(model_path):
     hf_hub_download(repo_id=REPO_ID, filename=FILENAME, local_dir="/app/models")
 
 # Initialize LLM
-llm = Llama(model_path=model_path, n_ctx=4096, n_threads=4, n_batch=512, flash_attn=True)
+llm = Llama(model_path=model_path, n_ctx=8126, n_threads=4, n_batch=512, flash_attn=True)
 
 # Update your DB_PATH to use the persistent volume
 DB_PATH = "/app/data/memory.db"
@@ -57,57 +57,11 @@ LINTER_ENABLED = os.getenv("LINTER_ENABLED", "0") == "1"
 
 # ---------------- Response contract/prompt ----------------
 SYSTEM_PROMPT = """
-You are a senior AI engineer and research assistant with expertise in:
-- Machine Learning & Data Science (Python, PyTorch, TensorFlow, scikit-learn, XGBoost, pandas, numpy, matplotlib, etc.)
-- General Software Engineering (Python, JavaScript/TypeScript, HTML/CSS, backend systems, APIs, system design)
-- Technical Communication (explaining algorithms, design tradeoffs, best practices, and code reviews)
-
-# Non-Negotiable Contract
-1) Always start with an explicit '#mode: write|review|explain|discuss|math' chosen to match the user's request.
-   - Default to '#mode: write' if unsure.
-2) Provide a short 'Plan' section with 3–7 bullets outlining the approach.
-3) For `#mode: write` and `#mode: review`, use the strict Multi-file format below.
-4) Code must be complete, minimal, and runnable (MWE). Never give partial snippets.
-5) Prefer clarity: PEP8, type hints, and docstrings. Avoid over-engineering.
-6) If you are unsure about a domain fact, say "I don’t know" rather than fabricating.
-
-# Multi-file Output Format (STRICT, write/review only)
-Each file must be output in the following form:
-
-FILE: relative/path/to/file.ext
-```language
-<full file contents>
-Rules:
-
-Always use Markdown code fences with a language tag (python, javascript, etc.).
-
-Include all imports, helpers, and constants. No omissions.
-
-If modifying an existing file, output the full revised file (not a diff).
-
-Ensure consistency across files when dependencies exist.
-
-Modes
-#mode: write → produce code in the strict Multi-file format.
-
-#mode: review → critique code, then rewrite in Multi-file format with improvements.
-
-#mode: explain → explain line by line or conceptually.
-
-#mode: discuss → provide high-level insights, comparisons, or design tradeoffs.
-
-#mode: math → produce derivations, formulas, and LaTeX when useful.
-
-Self-Check (bullet list at the end)
-Syntax errors?
-
-Imports complete?
-
-Example runs?
-
-Types & docstrings included?
-
-For ML: proper data split, seed, and evaluation metric?
+You are a senior AI engineer. 
+1) Always start your response with '#mode: write|review|explain|discuss|math'.
+2) If code is requested, use the 'FILE: path/to/file.ext' format inside markdown blocks.
+3) If a general question is asked, provide a clear and direct answer.
+4) Be concise and professional.
 """
 # -------------- Flask app ---------------
 app = Flask(__name__, static_folder="../static", template_folder="../templates")
@@ -337,27 +291,36 @@ def build_full_prompt(project: str, user_text: str) -> Tuple[str, str]:
     files_context = load_project_files_context(project)
     mode = parse_user_mode(user_text)
 
-    planning_instructions = f"""
+    # Logic: Only enforce strict "Multi-file" rules for coding modes
+    if mode in ["write", "review"]:
+        planning_instructions = f"""
 IMPORTANT:
-- Always start with '#mode: {mode}' on the first line.
-- Then write a 'Plan' section (3–7 bullets).
+- Start with '#mode: {mode}'.
+- Write a 'Plan' section (3–7 bullets).
 - Use the strict Multi-file format for ALL code.
-- End with a 'Self-Check' bullet list.
+- End with a 'Self-Check'.
+"""
+    else:
+        # For 'explain' or 'discuss', we want a natural conversation
+        planning_instructions = f"""
+IMPORTANT:
+- Start with '#mode: {mode}'.
+- Answer the user's question directly and concisely.
+- Do NOT use the Multi-file format unless specifically asked for code.
 """
 
     sections = [
         SYSTEM_PROMPT.strip(),
         "\n--- Session Settings ---\n",
-        f"Model: {MODEL}\nTemperature: {TEMPERATURE}\nTop_p: {TOP_P}\nSeed: {SEED}\n",
+        f"Model: {MODEL}\nTemperature: {TEMPERATURE}\n",
         "\n--- Project Context ---\n",
         files_context,
-        "\n--- Conversation (recent) ---\n",
+        "\n--- Conversation ---\n",
         "\n".join(hist_lines),
         "\n--- New Request ---\n",
         f"USER: {user_text}\n{planning_instructions}\nASSISTANT:"
     ]
     prompt = "\n".join(s for s in sections if s is not None)
-    # enforce global char budget
     if len(prompt) > MAX_PROMPT_CHARS:
         prompt = prompt[-MAX_PROMPT_CHARS:]
     return prompt, mode
@@ -421,7 +384,7 @@ def chat():
         # Use your initialized 'llm' object instead of ollama
         resp = llm(
             full_prompt,
-            max_tokens=256,
+            max_tokens=512,
             temperature=TEMPERATURE,
             top_p=TOP_P,
             stop=["\nUSER:", "\nSYSTEM:"],
@@ -454,7 +417,7 @@ def stream():
             # 2. Run inference with smaller max_tokens for speed
             stream_res = llm(
                 full_prompt,
-                max_tokens=1024, 
+                max_tokens=2048, 
                 temperature=0.7,
                 stream=True,
                 stop=["USER:", "ASSISTANT:"]
