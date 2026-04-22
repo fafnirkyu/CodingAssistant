@@ -126,17 +126,25 @@ sendBtn.addEventListener("click", async () => {
         for (const line of parts) {
           if (line.startsWith("data: ")) {
             const raw = line.slice(6);
-            if (raw === "[DONE]") continue;
+            
+            // 1. Skip empty keep-alive data or the [DONE] signal
+            if (raw.trim() === "" || raw === "[DONE]") continue;
+
             if (raw.startsWith("ERROR:")) {
               assistantNode.textContent = raw;
               continue;
             }
+
+            // 2. Decode the token (handle the escaped newlines from app.py)
             const formatted = raw.replace(/\\n/g, "\n");
             fullText += formatted;
+
+            // 3. Update the UI
             try {
+              // Use marked to parse the markdown as it arrives
               assistantNode.innerHTML = `<strong>Assistant:</strong><br>` + marked.parse(fullText);
-              hljs.highlightAll();
-            } catch {
+              if (typeof hljs !== 'undefined') hljs.highlightAll();
+            } catch (e) {
               assistantNode.textContent = fullText;
             }
             chatDiv.scrollTop = chatDiv.scrollHeight;
