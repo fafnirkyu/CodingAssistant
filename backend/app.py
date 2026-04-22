@@ -463,7 +463,13 @@ def stream():
                 token = chunk["choices"][0]["text"]
                 if token:
                     # Format for your script.js
-                    yield f"data: {token.replace(chr(10), '\\n')}\n\n"
+                    for chunk in stream_res:
+                        token = chunk["choices"][0]["text"]
+                        if token:
+                            # 1. Clean the token first
+                            safe_token = token.replace("\n", "\\n").replace("\r", "")
+                            # 2. Then yield it simply
+                            yield f"data: {safe_token}\n\n"
 
             yield "data: [DONE]\n\n"
         except Exception as e:
