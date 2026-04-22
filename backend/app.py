@@ -447,34 +447,35 @@ def stream():
     full_prompt = f"USER: {user_text}\nASSISTANT:"
 
     def generate():
-        # 1. Send an immediate space to keep the gateway open
-        yield "data:  \n\n"
-        
-        try:
-            # 2. Run the 0.5B model
-            stream_res = llm(
-                full_prompt,
-                max_tokens=200,
-                stream=True,
-                stop=["USER:"]
-            )
+            # Immediate keep-alive for Railway gateway
+            yield "data:  \n\n"
             
-            for chunk in stream_res:
-                token = chunk["choices"][0]["text"]
-                if token:
-                    # Format for your script.js
-                    for chunk in stream_res:
-                        token = chunk["choices"][0]["text"]
-                        if token:
-                            # 1. Clean the token first
-                            safe_token = token.replace("\n", "\\n").replace("\r", "")
-                            # 2. Then yield it simply
-                            yield f"data: {safe_token}\n\n"
-
-            yield "data: [DONE]\n\n"
-        except Exception as e:
-            print(f"STREAM ERROR: {e}")
-            yield f"data: ERROR: {str(e)}\n\n"
+            try:
+                # Short prompt to ensure immediate start
+                stream_res = llm(
+                    full_prompt,
+                    max_tokens=256,
+                    temperature=0.7,
+                    stream=True,
+                    stop=["USER:", "ASSISTANT:"]
+                )
+                
+                for chunk in stream_res:
+                    # Safely extract token
+                    choice = chunk.get("choices", [{}])[0]
+                    token = choice.get("text", "")
+                    
+                    if token:
+                        # CLEANING: Do not use replace in f-strings
+                        # Escape newlines for your script.js decoder
+                        safe_token = token.replace("\n", "\\n").replace("\r", "")
+                        yield f"data: {safe_token}\n\n"
+                
+                yield "data: [DONE]\n\n"
+            except Exception as e:
+                # Print to Railway logs so you can see exactly why it failed
+                print(f"CRITICAL INFERENCE ERROR: {str(e)}")
+                yield f"data: ERROR: {str(e)}\n\n"
 
     return Response(generate(), mimetype="text/event-stream")
 
