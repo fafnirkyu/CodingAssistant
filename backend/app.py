@@ -438,45 +438,41 @@ def chat():
 
 @app.route("/stream", methods=["POST"])
 def stream():
-    # Use standard strings where no variables are needed
-    print(">>> REQUEST RECEIVED") 
     data = request.json or {}
-    user_text = data.get("message", "Hello")
+    project = data.get("project", "default")
+    user_text = (data.get("message") or "").strip()
+    
+    save_message(project, "user", user_text)
+    # Using a tiny prompt for testing to ensure speed
+    full_prompt = f"USER: {user_text}\nASSISTANT:"
 
     def generate():
-        # MANDATORY: This first yield keeps the connection open
-        yield "data: \n\n"
+        # 1. IMMEDIATE Keep-Alive: Tell Railway the server is alive
+        yield "data:  \n\n" 
         
         try:
-            # We use a very simple prompt to bypass the 'thinking' delay
-            prompt = f"User: {user_text}\nAssistant:"
-            print(">>> LLM STARTING")
-            
-            # Reduce n_predict/max_tokens to get an immediate result
-            output = llm(
-                prompt,
-                max_tokens=50,
+            # 2. Run inference with smaller max_tokens for speed
+            stream_res = llm(
+                full_prompt,
+                max_tokens=150, 
+                temperature=0.7,
                 stream=True,
-                stop=["User:"]
+                stop=["USER:"]
             )
             
-            for chunk in output:
-                token = chunk["choices"][0]["text"]
+            for chunk in stream_res:
+                token = chunk.get("choices", [{}])[0].get("text", "")
                 if token:
-                    # Log to Railway console so we can see it working
-                    print(f">>> TOKEN: {token}") 
-                    # Prepare for script.js
-                    safe_token = token.replace("\n", "\\n")
+                    # 3. Clean token: replace actual newlines with escaped string
+                    # This is what your script.js expects
+                    safe_token = token.replace("\n", "\\n").replace("\r", "")
                     yield f"data: {safe_token}\n\n"
             
             yield "data: [DONE]\n\n"
-            print(">>> FINISHED")
-            
         except Exception as e:
-            print(f">>> ERROR: {str(e)}")
+            print(f"STREAM ERROR: {e}")
             yield f"data: ERROR: {str(e)}\n\n"
 
-    # Direct Response prevents Flask from buffering the output
     return Response(generate(), mimetype="text/event-stream")
 
 @app.route("/search_web", methods=["POST"])
