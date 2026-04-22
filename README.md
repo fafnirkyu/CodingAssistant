@@ -1,20 +1,21 @@
-# Qwen Coder — Local Personal Coding Assistant
+# Qwen Coder — Cloud-Native Personal Coding Assistant
 
-A fully local, project-aware coding companion powered by [Qwen3-Coder-30B-A3B-Instruct-480B-Distill-V2-Q5_K_M](https://huggingface.co/Qwen) running via [Ollama](https://ollama.com/).  
-This assistant helps you write, debug, and manage code across multiple projects with file context awareness, streaming responses, and automatic file saving.
+A project-aware coding companion powered by Qwen2.5-Coder-1.5B optimized for cloud deployment on Railway.
+
+This assistant provides high-quality coding intelligence within a constrained 2GB RAM environment using llama-cpp-python and GGUF quantization.
 
 ---
 
 ## ✨ Features
 
-- **Local LLM** — Uses Qwen v3 30B for high-quality coding assistance, no cloud API required.
-- **Project-based Context** — Automatically reads your project's files to provide relevant context in responses.
-- **Multi-file Editing** — Generates and saves multiple files directly to your project folder.
+- **Cloud-Ready LLM** — Optimized Qwen 1.5B model running on CPU-only instances.
+- **Persistent Storage** — Integrated with Railway Volumes for project files and model storage.
+- **Project-based Context** — Automatically injects your uploaded project files into the AI's context.
 - **Streaming Output** — Real-time, token-by-token response streaming.
 - **Web Search** — Integrated DuckDuckGo API for quick information lookup.
 - **File Uploads** — Upload project files directly via the web UI.
 - **Persistent Chat Memory** — Remembers previous interactions per project using SQLite.
-- **Dark Mode UI** — Clean, responsive interface with Markdown and syntax highlighting.
+- **Memory Efficient** — Uses Flash Attention and 4-bit quantization to fit coding intelligence into 2GB RAM.
 
 ---
 
@@ -34,48 +35,23 @@ This assistant helps you write, debug, and manage code across multiple projects 
 
 ---
 
-## 🛠️ Requirements
+## Deployment (Railway)
 
-- Python 3.9+
-- [Ollama](https://ollama.com/) installed and running locally
-- Download the "Qwen3-Coder-30B-A3B-Instruct-480B-Distill-V2-Q5_K_M" model from Huggingface(https://huggingface.co/BasedBase/Qwen3-Coder-30B-A3B-Instruct-480B-Distill-V2)
-- Put the downloaded file in the same folder as the Modelfile (/model)
-- Open the CMD and run "ollama create Qwen3-Coder-30B-A3B-Instruct-480B-Distill-V2-Q5_K_M --file Modelfile"
+1. Mount Volumes: Create a volume and mount it to /app/data and /app/models.
 
-  
-Node & npm (optional, if you plan to extend the frontend)
+2. Environment Variables:
+   - `PORT`: 8080
+   - `PYTHONUNBUFFERED`: 1
 
-Python dependencies:
+3. Start command:
 
-pip install flask requests ollama
+    ```bash
+    gunicorn --workers 1 --timeout 300 --bind 0.0.0.0:8080 backend.app:app
+    ```
 
-🚀 Usage
-Start Ollama:
+### Privacy
 
-ollama serve
-
-Run the Backend:
-
-python backend/app.py
-Open the Web UI:
-Go to http://localhost:5000 in your browser.
-
-Create a Project:
-Click Add Project, then start chatting. The assistant will:
-
-Read small project files for context
-
-Provide explanations & runnable code
-
-Save generated files directly into your project folder
-
-💡 Tips
-
-Use requirements.txt or README.md in your project — the assistant prioritizes them for context.
-
-Press Ctrl+Enter to send messages quickly.
-
-Uploaded files are automatically added to the active project's context.
+This assistant runs on your private Railway instance. No data is sent to OpenAI, Anthropic, or any other third-party LLM providers.
 
 🧩 Technology Stack
 
