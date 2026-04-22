@@ -454,7 +454,7 @@ def stream():
             # 2. Run inference with smaller max_tokens for speed
             stream_res = llm(
                 full_prompt,
-                max_tokens=1024, 
+                max_tokens=512, 
                 temperature=0.7,
                 stream=True,
                 stop=["USER:", "ASSISTANT:"]
