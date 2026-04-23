@@ -275,15 +275,24 @@ def save_generated_files(project: str, assistant_text: str) -> List[str]:
     return saved
 
 def parse_user_mode(text: str) -> str:
-    m = re.search(r"#mode:\s*(write|review|explain)", text, re.IGNORECASE)
+    m = re.search(r"#mode:\s*(write|review|explain|discuss|math)", text, re.IGNORECASE)
     if m:
         return m.group(1).lower()
-    # heuristics
-    if re.search(r"explain|walk me through|what does.*mean", text, re.IGNORECASE):
-        return "explain"
-    if re.search(r"review|critique|improve|refactor", text, re.IGNORECASE):
+    
+    # 1. Explicit coding triggers
+    if re.search(r"write|code|create|build|script|function|generate|program|app", text, re.IGNORECASE):
+        return "write"
+    
+    # 2. Review/Debug triggers
+    if re.search(r"review|critique|improve|refactor|fix|bug|error", text, re.IGNORECASE):
         return "review"
-    return "write"
+    
+    # 3. Explain triggers
+    if re.search(r"explain|walk me through|how does|what does.*mean", text, re.IGNORECASE):
+        return "explain"
+        
+    # 4. Default to casual chat if no coding intent is detected
+    return "discuss"
 
 def build_full_prompt(project: str, user_text: str) -> Tuple[str, str]:
     hist = load_recent(project, limit=8)
