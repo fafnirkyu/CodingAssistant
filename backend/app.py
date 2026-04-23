@@ -455,24 +455,24 @@ def stream():
 def search_web():
     data = request.json or {}
     query = (data.get("query") or "").strip()
-    if not query:
-        return jsonify({"error": "empty query"}), 400
+    
+    # Register at tavily.com for a free API key
+    TAVILY_API_KEY = "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" 
 
+    payload = {
+        "api_key": TAVILY_API_KEY,
+        "query": query,
+        "search_depth": "basic",
+        "max_results": 3
+    }
+    
     try:
-        results = []
-        # This actually scrapes the web just like a human doing a search
-        with DDGS() as ddgs:
-            # Grab the top 3 actual website results
-            ddg_results = list(ddgs.text(query, max_results=3))
-            
-            for r in ddg_results:
-                # Combine the webpage title and the snippet
-                results.append(f"{r.get('title')}: {r.get('body')}")
-                
+        response = requests.post("https://api.tavily.com/search", json=payload, timeout=10)
+        tavily_data = response.json()
+        results = [f"{r['title']}: {r['content']}" for r in tavily_data.get("results", [])]
         return jsonify({"results": results})
     except Exception as e:
-        print(f"Web Search Error: {e}")
-        return jsonify({"error": "failed to fetch real search results"}), 500
+        return jsonify({"error": str(e)}), 500
 
 
 def allowed_file(filename):

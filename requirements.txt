@@ -6,4 +6,3 @@ gunicorn
 requests
 llama-cpp-python
 huggingface_hub
-duckduckgo-search==6.2.13
