@@ -569,6 +569,13 @@ def lint(project):
         code, out, err = _run_cmd(["python", "-m", "pyflakes", "."], cwd=base, timeout=60)
     return jsonify({"code": code, "stdout": out, "stderr": err})
 
+@app.route("/history/<project>", methods=["GET"])
+def get_history(project):
+    # Fetch more than the usual '8' limit to show the full context to the user
+    cur.execute("SELECT role, content FROM messages WHERE project=? ORDER BY id ASC", (project,))
+    history = [{"role": r[0], "content": r[1]} for r in cur.fetchall()]
+    return jsonify({"history": history})
+
 if __name__ == "__main__":
     os.makedirs(PROJECTS_DIR, exist_ok=True)
     app.run(host="0.0.0.0", port=5000, debug=True)
