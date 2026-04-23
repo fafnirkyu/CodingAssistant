@@ -300,34 +300,35 @@ def build_full_prompt(project: str, user_text: str, search_results: List[str] = 
     files_context = load_project_files_context(project)
     mode = parse_user_mode(user_text)
 
-    # 1. Define the search context block
+    # 1. Define the search context block (The "Eyes" of the AI)
     search_context = ""
     if search_results:
         search_context = "\n--- Web Search Results ---\n" + "\n".join(search_results)
 
-    # 2. Logic for mode-specific instructions
+    # 2. Refined Instructions: Tell the AI it's okay to just answer questions
     if mode in ["write", "review"]:
         planning_instructions = f"""
 IMPORTANT:
 - Start with '#mode: {mode}'.
-- Write a 'Plan' section (3–7 bullets).
-- Use the strict Multi-file format for ALL code.
-- End with a 'Self-Check'.
+- ONLY if you are generating code: Write a 'Plan' section and use the Multi-file format.
+- If this is a general question: Answer directly and ignore the 'Plan' requirement.
+- End with a 'Self-Check' if code was written.
 """
     else:
+        # Standard conversation mode
         planning_instructions = f"""
 IMPORTANT:
 - Start with '#mode: {mode}'.
-- Answer the user's question directly and concisely.
-- Do NOT use the Multi-file format unless specifically asked for code.
+- Use the provided search results to answer the user's question directly.
+- Be concise and do not use coding formats.
 """
 
-    # 3. Assemble the prompt (added search_context to the list)
+    # 3. Assemble the prompt (ensure search_context is in the list)
     sections = [
         SYSTEM_PROMPT.strip(),
         "\n--- Session Settings ---\n",
         f"Model: {MODEL}\nTemperature: {TEMPERATURE}\n",
-        search_context,  # <--- CRITICAL FIX: This was missing from your sections list
+        search_context,  # Correctly injected here
         "\n--- Project Context ---\n",
         files_context,
         "\n--- Conversation ---\n",
