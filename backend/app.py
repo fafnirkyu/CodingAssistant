@@ -294,13 +294,18 @@ def parse_user_mode(text: str) -> str:
     # 4. Default to casual chat if no coding intent is detected
     return "discuss"
 
-def build_full_prompt(project: str, user_text: str) -> Tuple[str, str]:
+def build_full_prompt(project: str, user_text: str, search_results: List[str] = None) -> Tuple[str, str]:
     hist = load_recent(project, limit=8)
     hist_lines = [f"{m['role'].upper()}: {m['content']}" for m in hist]
     files_context = load_project_files_context(project)
     mode = parse_user_mode(user_text)
 
-    # Logic: Only enforce strict "Multi-file" rules for coding modes
+    # 1. Define the search context block
+    search_context = ""
+    if search_results:
+        search_context = "\n--- Web Search Results ---\n" + "\n".join(search_results)
+
+    # 2. Logic for mode-specific instructions
     if mode in ["write", "review"]:
         planning_instructions = f"""
 IMPORTANT:
@@ -310,7 +315,6 @@ IMPORTANT:
 - End with a 'Self-Check'.
 """
     else:
-        # For 'explain' or 'discuss', we want a natural conversation
         planning_instructions = f"""
 IMPORTANT:
 - Start with '#mode: {mode}'.
@@ -318,10 +322,12 @@ IMPORTANT:
 - Do NOT use the Multi-file format unless specifically asked for code.
 """
 
+    # 3. Assemble the prompt (added search_context to the list)
     sections = [
         SYSTEM_PROMPT.strip(),
         "\n--- Session Settings ---\n",
         f"Model: {MODEL}\nTemperature: {TEMPERATURE}\n",
+        search_context,  # <--- CRITICAL FIX: This was missing from your sections list
         "\n--- Project Context ---\n",
         files_context,
         "\n--- Conversation ---\n",
@@ -329,9 +335,12 @@ IMPORTANT:
         "\n--- New Request ---\n",
         f"USER: {user_text}\n{planning_instructions}\nASSISTANT:"
     ]
-    prompt = "\n".join(s for s in sections if s is not None)
+
+    # 4. Join and enforce character budget
+    prompt = "\n".join(s for s in sections if s and s.strip())
     if len(prompt) > MAX_PROMPT_CHARS:
         prompt = prompt[-MAX_PROMPT_CHARS:]
+    
     return prompt, mode
 
 # -------------- Routes --------------
