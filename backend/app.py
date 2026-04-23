@@ -11,6 +11,7 @@ import requests
 from werkzeug.utils import secure_filename
 from llama_cpp import Llama
 from huggingface_hub import hf_hub_download
+from duckduckgo_search import DDGS
 
 # --- Cloud Config ---
 # We use a 1.5B model so it doesn't crash Railway's free RAM (approx 2GB)
@@ -457,24 +458,22 @@ def search_web():
     if not query:
         return jsonify({"error": "empty query"}), 400
 
-    r = requests.get(
-        "https://api.duckduckgo.com/",
-        params={"q": query, "format": "json", "no_redirect": 1, "no_html": 1},
-        timeout=5
-    )
     try:
-        ddg = r.json()
-    except Exception:
-        return jsonify({"error": "failed to parse search results"}), 500
+        results = []
+        # This actually scrapes the web just like a human doing a search
+        with DDGS() as ddgs:
+            # Grab the top 3 actual website results
+            ddg_results = list(ddgs.text(query, max_results=3))
+            
+            for r in ddg_results:
+                # Combine the webpage title and the snippet
+                results.append(f"{r.get('title')}: {r.get('body')}")
+                
+        return jsonify({"results": results})
+    except Exception as e:
+        print(f"Web Search Error: {e}")
+        return jsonify({"error": "failed to fetch real search results"}), 500
 
-    results = []
-    if ddg.get("AbstractText"):
-        results.append(ddg["AbstractText"])
-    for t in ddg.get("RelatedTopics", []):
-        if isinstance(t, dict) and "Text" in t:
-            results.append(t["Text"])
-
-    return jsonify({"results": results})
 
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
