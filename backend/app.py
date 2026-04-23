@@ -11,7 +11,6 @@ import requests
 from werkzeug.utils import secure_filename
 from llama_cpp import Llama
 from huggingface_hub import hf_hub_download
-from duckduckgo_search import DDGS
 
 # --- Cloud Config ---
 # We use a 1.5B model so it doesn't crash Railway's free RAM (approx 2GB)
@@ -457,7 +456,7 @@ def search_web():
     query = (data.get("query") or "").strip()
     
     # Register at tavily.com for a free API key
-    TAVILY_API_KEY = "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" 
+    TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 
     payload = {
         "api_key": TAVILY_API_KEY,
