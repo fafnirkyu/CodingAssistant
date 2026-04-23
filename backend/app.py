@@ -349,9 +349,25 @@ IMPORTANT:
 def index():
     return render_template("index.html")
 
-@app.route("/history/<project>")
-def history(project):
-    return jsonify(load_recent(project, limit=200))
+@app.route("/history/<project>", methods=["GET"])
+def get_history(project):
+    try:
+        # Open a fresh connection to avoid "Thread" issues
+        conn = sqlite3.connect(DB_PATH)
+        cur = conn.cursor()
+        
+        # Fetch role and content, ordered by ID to keep the conversation chronological
+        cur.execute("SELECT role, content FROM messages WHERE project=? ORDER BY id ASC", (project,))
+        rows = cur.fetchall()
+        conn.close()
+        
+        # Wrap the list in a dictionary with the key 'history'
+        history_list = [{"role": r[0], "content": r[1]} for r in rows]
+        return jsonify({"history": history_list})
+        
+    except Exception as e:
+        print(f"Database Error: {e}")
+        return jsonify({"error": str(e)}), 500
 
 @app.route("/projects")
 def get_projects():
@@ -568,13 +584,6 @@ def lint(project):
     else:
         code, out, err = _run_cmd(["python", "-m", "pyflakes", "."], cwd=base, timeout=60)
     return jsonify({"code": code, "stdout": out, "stderr": err})
-
-@app.route("/history/<project>", methods=["GET"])
-def get_history(project):
-    # Fetch more than the usual '8' limit to show the full context to the user
-    cur.execute("SELECT role, content FROM messages WHERE project=? ORDER BY id ASC", (project,))
-    history = [{"role": r[0], "content": r[1]} for r in cur.fetchall()]
-    return jsonify({"history": history})
 
 if __name__ == "__main__":
     os.makedirs(PROJECTS_DIR, exist_ok=True)

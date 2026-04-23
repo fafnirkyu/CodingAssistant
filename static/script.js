@@ -15,7 +15,7 @@ async function loadHistory(project) {
   chatDiv.innerHTML = '<div class="message assistant"><em>Loading history...</em></div>';
   
   try {
-    const res = await fetch(`/history/${project}`);
+    const res = await fetch(`/history/${encodeURIComponent(project)}`);
     const data = await res.json();
     
     chatDiv.innerHTML = ""; // Clear loading indicator
